@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0fd73798f9e04740b9cfd161972debc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6113951007750707890, guid: f2c081c45294b9e4c9eb83a34e5a7b3f, type: 3}
 --- !u!4 &798814529
 Transform:
   m_ObjectHideFlags: 0
@@ -394,9 +395,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 920106502}
-  - component: {fileID: 920106501}
   - component: {fileID: 920106503}
   - component: {fileID: 920106504}
+  - component: {fileID: 920106505}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -404,56 +405,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!60 &920106501
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920106500}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.49353114, y: 0.7532344}
-      - {x: -0.5108802, y: 0.2756703}
-      - {x: -0.52776104, y: -0.29547805}
-      - {x: -0.059140563, y: -0.03537357}
-      - {x: 0.38416255, y: 0.19563834}
-  m_UseDelaunayMesh: 0
 --- !u!4 &920106502
 Transform:
   m_ObjectHideFlags: 0
@@ -463,7 +414,7 @@ Transform:
   m_GameObject: {fileID: 920106500}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -513,6 +464,56 @@ MonoBehaviour:
   bulletPrefab: {fileID: 903665385009735535, guid: f7ef0c59f8beb1c4a8daaba1e0a5381e, type: 3}
   spawnPt: {fileID: 920106502}
   missilePrefab: {fileID: 1794629715104888244, guid: 51df3e8df8598c24d8e27217416de110, type: 3}
+--- !u!60 &920106505
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920106500}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  m_Points:
+    m_Paths:
+    - - {x: -0.03204918, y: 0.23954773}
+      - {x: -0.2838393, y: 0.33815306}
+      - {x: -0.29642433, y: -0.32535776}
+      - {x: 0.5732175, y: -0.0019469261}
+      - {x: 0.14398623, y: 0.17207742}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1193293196
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,13 +539,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193293196}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.71719635, w: 0.69687116}
-  m_LocalPosition: {x: -0.21124622, y: 0.21740697, z: -0.08283683}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 0.675, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 920106502}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -91.647}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &1193293198
 SpriteRenderer:
   m_ObjectHideFlags: 0
