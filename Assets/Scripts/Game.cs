@@ -7,6 +7,7 @@ public class Game : MonoBehaviour
 {
     public static int Score = 0;
     public static int Health = 10;
+    public static int RespawnTime = 5;
     public GameObject enemyPrefab;
     private Vector3 _eSpawnVector = new Vector3(5, 0, 0);
     int last = 0;
@@ -29,7 +30,7 @@ public class Game : MonoBehaviour
         print(Health);
         print("Health");
 
-        if (curr - last > 1)
+        if (curr - last > RespawnTime)
         {
             last = curr;
             var enemy = Instantiate(enemyPrefab);
