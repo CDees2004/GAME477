@@ -62,6 +62,24 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ShootBullet"",
+                    ""type"": ""Button"",
+                    ""id"": ""535c3988-355a-4811-bdc4-9d3edc1bb230"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShootMissile"",
+                    ""type"": ""Button"",
+                    ""id"": ""38e11537-517b-4bb0-a54b-1a3a30dc4556"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +170,72 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
                     ""action"": ""MoveLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""873b99fb-8b59-482e-9e25-de1aa5a33992"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootBullet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""939071b7-231d-4066-b666-6698a5dd8320"",
+                    ""path"": ""<Joystick>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootBullet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""b772e702-1fdb-4645-85e7-c6c6a3036803"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootMissile"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""bfaaef4a-454f-46c8-9a63-1fa546b2625a"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootMissile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""5a407d29-6599-48c2-a8aa-746b3db87365"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootMissile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6382ad10-8822-4de0-a69c-8068accc827c"",
+                    ""path"": ""<Joystick>/{SecondaryTrigger}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShootMissile"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +248,8 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
         m_Standard_MoveDown = m_Standard.FindAction("MoveDown", throwIfNotFound: true);
         m_Standard_MoveRight = m_Standard.FindAction("MoveRight", throwIfNotFound: true);
         m_Standard_MoveLeft = m_Standard.FindAction("MoveLeft", throwIfNotFound: true);
+        m_Standard_ShootBullet = m_Standard.FindAction("ShootBullet", throwIfNotFound: true);
+        m_Standard_ShootMissile = m_Standard.FindAction("ShootMissile", throwIfNotFound: true);
     }
 
     ~@SpaceShooterControls()
@@ -234,6 +320,8 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_MoveDown;
     private readonly InputAction m_Standard_MoveRight;
     private readonly InputAction m_Standard_MoveLeft;
+    private readonly InputAction m_Standard_ShootBullet;
+    private readonly InputAction m_Standard_ShootMissile;
     public struct StandardActions
     {
         private @SpaceShooterControls m_Wrapper;
@@ -242,6 +330,8 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
         public InputAction @MoveDown => m_Wrapper.m_Standard_MoveDown;
         public InputAction @MoveRight => m_Wrapper.m_Standard_MoveRight;
         public InputAction @MoveLeft => m_Wrapper.m_Standard_MoveLeft;
+        public InputAction @ShootBullet => m_Wrapper.m_Standard_ShootBullet;
+        public InputAction @ShootMissile => m_Wrapper.m_Standard_ShootMissile;
         public InputActionMap Get() { return m_Wrapper.m_Standard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -263,6 +353,12 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
             @MoveLeft.started += instance.OnMoveLeft;
             @MoveLeft.performed += instance.OnMoveLeft;
             @MoveLeft.canceled += instance.OnMoveLeft;
+            @ShootBullet.started += instance.OnShootBullet;
+            @ShootBullet.performed += instance.OnShootBullet;
+            @ShootBullet.canceled += instance.OnShootBullet;
+            @ShootMissile.started += instance.OnShootMissile;
+            @ShootMissile.performed += instance.OnShootMissile;
+            @ShootMissile.canceled += instance.OnShootMissile;
         }
 
         private void UnregisterCallbacks(IStandardActions instance)
@@ -279,6 +375,12 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
             @MoveLeft.started -= instance.OnMoveLeft;
             @MoveLeft.performed -= instance.OnMoveLeft;
             @MoveLeft.canceled -= instance.OnMoveLeft;
+            @ShootBullet.started -= instance.OnShootBullet;
+            @ShootBullet.performed -= instance.OnShootBullet;
+            @ShootBullet.canceled -= instance.OnShootBullet;
+            @ShootMissile.started -= instance.OnShootMissile;
+            @ShootMissile.performed -= instance.OnShootMissile;
+            @ShootMissile.canceled -= instance.OnShootMissile;
         }
 
         public void RemoveCallbacks(IStandardActions instance)
@@ -302,5 +404,7 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
         void OnMoveDown(InputAction.CallbackContext context);
         void OnMoveRight(InputAction.CallbackContext context);
         void OnMoveLeft(InputAction.CallbackContext context);
+        void OnShootBullet(InputAction.CallbackContext context);
+        void OnShootMissile(InputAction.CallbackContext context);
     }
 }
