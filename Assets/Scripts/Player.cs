@@ -7,6 +7,8 @@ public class Player : MonoBehaviour {
     public GameObject bulletPrefab;
     public Transform spawnPt;
     public GameObject missilePrefab;
+    public int upperBound = 4;
+    public int lowerBound = -4;
 
     // Start is called before the first frame update
     void Start() {
@@ -18,8 +20,15 @@ public class Player : MonoBehaviour {
 
         // Player Controls
         var input = Game.Input.Standard;
-        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime * input.MoveUp.ReadValue<float>());
-        transform.Translate(Vector3.down * moveSpeed * Time.deltaTime * input.MoveDown.ReadValue<float>());
+        if (transform.position[1] < upperBound)
+        {
+            transform.Translate(Vector3.up * moveSpeed * Time.deltaTime * input.MoveUp.ReadValue<float>());
+        }
+
+        if (transform.position[1] > lowerBound)
+        {
+            transform.Translate(Vector3.down * moveSpeed * Time.deltaTime * input.MoveDown.ReadValue<float>());
+        }
         //transform.Translate(Vector3.right * moveSpeed * Time.deltaTime * input.MoveRight.ReadValue<float>());
         //transform.Translate(Vector3.left * moveSpeed * Time.deltaTime * input.MoveLeft.ReadValue<float>());
 
