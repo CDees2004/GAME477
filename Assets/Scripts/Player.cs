@@ -27,12 +27,11 @@ public class Player : MonoBehaviour {
         // Bullet Functionality
         if (input.ShootBullet.WasPressedThisFrame()) {
             var bullet = Instantiate(bulletPrefab);
-            bullet.transform.position = spawnPt.position;
-        }
+            bullet.transform.position = spawnPt.position+Vector3.right; }
 
         if (input.ShootMissile.WasPressedThisFrame()) {
             var missile = Instantiate(missilePrefab);
-            missile.transform.position = spawnPt.position;
+            missile.transform.position = spawnPt.position+Vector3.right;
         }
     }
 }

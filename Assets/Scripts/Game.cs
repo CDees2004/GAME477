@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+    using Random =  UnityEngine.Random;
 
-public class Game : MonoBehaviour
+
+    public class Game : MonoBehaviour
 {
     public static int Score = 0;
     public static int Health = 10;
-    public static int RespawnTime = 5;
+    public static int RespawnTime = 3;
     public GameObject enemyPrefab;
     private Vector3 _eSpawnVector = new Vector3(5, 0, 0);
     int last = 0;
@@ -32,9 +34,10 @@ public class Game : MonoBehaviour
 
         if (curr - last > RespawnTime)
         {
+            int randomNumber = Random.Range(-4, 5);//Controls spawning along Y axis
             last = curr;
             var enemy = Instantiate(enemyPrefab);
-            enemy.transform.position = _eSpawnVector;
+            enemy.transform.position = new Vector3(8, randomNumber, 0);
         }
 
         if (Health <= 0)
