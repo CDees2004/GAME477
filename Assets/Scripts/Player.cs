@@ -78,6 +78,11 @@ public class Player : MonoBehaviour {
             print("Collided");
             updateHealth(-1);
         }
+        if (collision.CompareTag("HealthPowerUp")){
+            print("Health up!");
+            updateHealth(2);
+            Destroy(collision.gameObject);
+        }
         
     }
 }
