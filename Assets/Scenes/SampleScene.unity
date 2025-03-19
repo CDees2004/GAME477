@@ -283,7 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd621ba217996e348a55bf7dad9a46f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
 --- !u!114 &74524335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,7 +1010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.9575145, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.055934906, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1351,6 +1350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0fd73798f9e04740b9cfd161972debc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 74524335}
   enemyPrefab: {fileID: 6113951007750707890, guid: f2c081c45294b9e4c9eb83a34e5a7b3f, type: 3}
 --- !u!224 &798814529
 RectTransform:
@@ -1826,13 +1826,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83fee20fd60646743bea08413f17c9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 1
   bulletPrefab: {fileID: 903665385009735535, guid: f7ef0c59f8beb1c4a8daaba1e0a5381e, type: 3}
   spawnPt: {fileID: 0}
   missilePrefab: {fileID: 1794629715104888244, guid: 51df3e8df8598c24d8e27217416de110, type: 3}
   upperBound: 4
   lowerBound: -4
-  HealthSlider: {fileID: 89548862}
+  healthSlider: {fileID: 89548864}
 --- !u!1 &1047647521
 GameObject:
   m_ObjectHideFlags: 0

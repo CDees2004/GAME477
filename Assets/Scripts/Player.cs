@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
     public float moveSpeed;
@@ -10,11 +11,13 @@ public class Player : MonoBehaviour {
     public GameObject missilePrefab;
     public int upperBound = 4;
     public int lowerBound = -4;
-    public GameObject HealthSlider; 
+    public Slider healthSlider;
+    private AudioSource _audioSrc;
+    private int _health = 10;
 
     // Start is called before the first frame update
     void Start() {
-        
+        _audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,5 +47,37 @@ public class Player : MonoBehaviour {
             var missile = Instantiate(missilePrefab);
             missile.transform.position = spawnPt.position+Vector3.right;
         }
+        
+        //This Quits the game when health reaches zero, implement UI later
+        if (_health <= 0)
+        {
+            #if UNITY_STANDALONE
+            Application.Quit();
+            #endif
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #endif
+        }
+    }
+    public void updateHealth(int x)
+    {
+        _health += x;
+        //healthSlider.value = _health;
+        
+    }
+    public int getHealth()
+    {
+        return _health;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("Enemy"))
+        {
+            print("Collided");
+            updateHealth(-1);
+        }
+        
     }
 }

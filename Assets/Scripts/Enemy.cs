@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
         if (transform.position.x < -7.5)
         {
             Destroy(gameObject);
-            Game.Instance.updateHealth(-1);
         }
 
         
@@ -30,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.CompareTag("Bullet"))
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
