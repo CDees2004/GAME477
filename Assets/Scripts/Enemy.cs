@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * -speed * Time.deltaTime);
-        if (transform.position.x < -7.5)
+        if (transform.position.x < -10)
         {
             Destroy(gameObject);
         }

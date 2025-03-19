@@ -1303,7 +1303,6 @@ GameObject:
   m_Component:
   - component: {fileID: 798814529}
   - component: {fileID: 798814528}
-  - component: {fileID: 798814530}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -1324,8 +1323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 74524335}
-  healthPowerUpPrefab: {fileID: 0}
-  speedPowerUpPrefab: {fileID: 0}
+  healthPowerUpPrefab: {fileID: 6848497575772983620, guid: e7fcafcdadd94ac4d9e750bc78d29c36, type: 3}
+  speedPowerUpPrefab: {fileID: 3990184940781499779, guid: cf1f71443f1d3a6608f21621b899b4f2, type: 3}
   curr: 0
   powerUp: 0
 --- !u!224 &798814529
@@ -1347,19 +1346,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1.0476085, y: -0.33251533}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &798814530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798814527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad0d123b87ef4d49aef6bde9c971fb8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6113951007750707890, guid: f2c081c45294b9e4c9eb83a34e5a7b3f, type: 3}
 --- !u!1 &829529818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1687,51 @@ MonoBehaviour:
   leftBound: -8.5
   rightBound: 8.5
   healthSlider: {fileID: 89548864}
+--- !u!1 &927378962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 927378964}
+  - component: {fileID: 927378963}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &927378963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927378962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0d123b87ef4d49aef6bde9c971fb8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 6113951007750707890, guid: f2c081c45294b9e4c9eb83a34e5a7b3f, type: 3}
+--- !u!4 &927378964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927378962}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 299.35928, y: 84.495575, z: -1.5912621}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1047647521
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,3 +2984,4 @@ SceneRoots:
   - {fileID: 920106502}
   - {fileID: 1074474179}
   - {fileID: 753962655}
+  - {fileID: 927378964}
