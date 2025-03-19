@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     public float speed = (float)2;
+   
+    
     // Start is called before the first frame update
     void Start()
     {
         
+
     }
 
     // Update is called once per frame
@@ -18,7 +22,7 @@ public class Enemy : MonoBehaviour
         if (transform.position.x < -7.5)
         {
             Destroy(gameObject);
-            Game.Health--;
+            Game.Instance.updateHealth(-1);
         }
 
         
@@ -30,7 +34,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
-            Game.Score++;
+            Game.Instance.updateScore(10);
             speed = 0;
             
         }

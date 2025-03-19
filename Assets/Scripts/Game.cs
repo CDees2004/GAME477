@@ -1,19 +1,37 @@
     using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
+using TMPro;
+
 using UnityEngine;
     using Random =  UnityEngine.Random;
 
 
     public class Game : MonoBehaviour
 {
-    public static int Score = 0;
-    public static int Health = 10;
-    public static int RespawnTime = 3;
+    public static Game Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
+    private int _score = 0;
+    TextMeshProUGUI _scoreText;
+    Slider _healthSlider;
+    
+    private int _health = 10;
+    private int _respawnTime = 3;
+    
+    
     public GameObject enemyPrefab;
     private Vector3 _eSpawnVector = new Vector3(5, 0, 0);
-    int last = 0;
-    int curr = 0; 
+    int _last = 0;
+    int _curr = 0; 
     public static SpaceShooterControls Input { get; private set; }  //initalize SpaceShooterControls as input
 
     // Start is called before the first frame update
@@ -25,22 +43,22 @@ using UnityEngine;
 
     // Update is called once per frame
     private void Update() {
-        curr =  (int)Time.time;
-        print(Score);
-        print("Score");
+        _curr =  (int)Time.time;
         
-        print(Health);
+        print(_score);
+        print("Score");
+        print(_health);
         print("Health");
 
-        if (curr - last > RespawnTime)
+        if (_curr - _last > _respawnTime)
         {
             int randomNumber = Random.Range(-4, 5);//Controls spawning along Y axis
-            last = curr;
+            _last = _curr;
             var enemy = Instantiate(enemyPrefab);
             enemy.transform.position = new Vector3(8, randomNumber, 0);
         }
 
-        if (Health <= 0)
+        if (_health <= 0)
         {
             #if UNITY_STANDALONE
                 Application.Quit();
@@ -49,6 +67,29 @@ using UnityEngine;
             UnityEditor.EditorApplication.isPlaying = false;
             #endif
         }
+    }
+
+    public void updateHealth(int x)
+    {
+        _health += x;
+        _healthSlider.value = _health;
+        
+    }
+
+    public void updateScore(int x)
+    {
+        _score += x;
+        _scoreText.text = _score.ToString("00000");
+    }
+
+    public int getHealth()
+    {
+        return _health;
+    }
+
+    public int getScore()
+    {
+        return _score;
     }
 }
 
