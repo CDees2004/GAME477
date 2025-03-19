@@ -244,7 +244,6 @@ GameObject:
   - component: {fileID: 74524333}
   - component: {fileID: 74524336}
   - component: {fileID: 74524335}
-  - component: {fileID: 74524334}
   m_Layer: 0
   m_Name: 'Score '
   m_TagString: Untagged
@@ -271,18 +270,6 @@ RectTransform:
   m_AnchoredPosition: {x: -201, y: 64.199}
   m_SizeDelta: {x: 243.7158, y: 42.3972}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &74524334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 74524332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd621ba217996e348a55bf7dad9a46f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &74524335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1352,6 +1339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 74524335}
   enemyPrefab: {fileID: 6113951007750707890, guid: f2c081c45294b9e4c9eb83a34e5a7b3f, type: 3}
+  powerUpPrefab: {fileID: 6848497575772983620, guid: e7fcafcdadd94ac4d9e750bc78d29c36, type: 3}
 --- !u!224 &798814529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1828,7 +1816,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   bulletPrefab: {fileID: 903665385009735535, guid: f7ef0c59f8beb1c4a8daaba1e0a5381e, type: 3}
-  spawnPt: {fileID: 0}
   missilePrefab: {fileID: 1794629715104888244, guid: 51df3e8df8598c24d8e27217416de110, type: 3}
   upperBound: 4
   lowerBound: -4

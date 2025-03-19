@@ -17,7 +17,7 @@ using UnityEngine;
     public GameObject enemyPrefab;
     public GameObject powerUpPrefab;
     private Vector3 _eSpawnVector = new Vector3(5, 0, 0);
-    private float powerUpTimer; 
+    private float _powerUpTimer = 0;
     int _last = 0;  
     int _curr = 0; 
     
@@ -39,12 +39,16 @@ using UnityEngine;
         
         Input = new SpaceShooterControls();     //grab input
         Input.Enable(); //enable input assets
-        powerUpTimer = float.MaxValue; //makign sure powerups don't spawn in the main menu
+        _powerUpTimer = float.MaxValue; //makign sure powerups don't spawn in the main menu
 
     }
 
     // Update is called once per frame
     private void Update() {
+        if (_powerUpTimer == 0 || (_powerUpTimer == float.MaxValue))
+        {
+            _powerUpTimer = Random.Range(5f, 12f);
+        }
         _curr =  (int)Time.time;
         if (_curr - _last > _respawnTime)
         {
@@ -53,13 +57,11 @@ using UnityEngine;
             var enemy = Instantiate(enemyPrefab);
             enemy.transform.position = new Vector3(8, randomNumber, 0);
         }
-        powerUpTimer -= powerUpTimer.deltaTime; //controls spawning of power ups
-        if (powerUpTimer < 0){
+        //controls spawning of power ups
+        if ((_curr - _powerUpTimer) > 0){
             Instantiate(powerUpPrefab);
-            powerUpTimer = Random.Range(5f, 12f);
+            _powerUpTimer += Random.Range(5f, 12f);
         }
-        
-
         
     }
     
