@@ -11,7 +11,7 @@ using Random =  UnityEngine.Random;
 
     public class Game : MonoBehaviour
 {
-    private float score;
+    private float _score;
     public TextMeshProUGUI scoreText;
     public GameObject healthPowerUpPrefab;
     public GameObject speedPowerUpPrefab;
@@ -37,17 +37,17 @@ using Random =  UnityEngine.Random;
 
     // Start is called before the first frame update
     void Start() {
-        Instance = this;
+        
         Input = new SpaceShooterControls();     //grab input
         _powerUpTimer = float.MaxValue; //makign sure powerups don't spawn in the main menu
-
+        
 
     }
 
     // Update is called once per frame
     private void Update() {
-        scoreText.text = score.ToString("00000");
-
+        scoreText.text = _score.ToString("00000");
+        
         if (_powerUpTimer == 0 || (_powerUpTimer == float.MaxValue))
         {
             _powerUpTimer = Random.Range(5f, 12f);
@@ -73,19 +73,25 @@ using Random =  UnityEngine.Random;
     {
         Input.Enable();
         mainMenuScreen.SetActive(false);
-        score = 0;
+        _score = 0;
+        
+    }
+
+    public void ToggleHud(GameObject hud)
+    {
+        hud.SetActive(!hud.activeSelf);
     }
 
 
     public void updateScore(float amount)
     {
-        score += amount;
+        _score += amount;
     }
 
 
     public float getScore()
     {
-        return score;
+        return _score;
     }
 }
 
