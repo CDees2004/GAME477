@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - PowerUp
   - Health
+  - HealthPowerUp
   layers:
   - Default
   - TransparentFX
