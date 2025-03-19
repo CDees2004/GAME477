@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     public GameObject missilePrefab;
     public int upperBound = 4;
     public int lowerBound = -4;
+    public int leftBound = -9;
+    public int rightBound = 9;
     public Slider healthSlider;
     private AudioSource _audioSrc;
     private int _health = 10;
@@ -34,8 +36,16 @@ public class Player : MonoBehaviour {
         {
             transform.Translate(Vector3.down * moveSpeed * Time.deltaTime * input.MoveDown.ReadValue<float>());
         }
-        //transform.Translate(Vector3.right * moveSpeed * Time.deltaTime * input.MoveRight.ReadValue<float>());
-        //transform.Translate(Vector3.left * moveSpeed * Time.deltaTime * input.MoveLeft.ReadValue<float>());
+
+        if (transform.position[0] < rightBound)
+        {
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime * input.MoveRight.ReadValue<float>());
+        }
+
+        if (transform.position[0] > leftBound)
+        {
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime * input.MoveLeft.ReadValue<float>());
+        }
 
 
         // Bullet Functionality
@@ -62,7 +72,7 @@ public class Player : MonoBehaviour {
     public void updateHealth(int x)
     {
         _health += x;
-        //healthSlider.value = _health;
+        healthSlider.value = _health;
         
     }
     public int getHealth()

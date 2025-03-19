@@ -5,7 +5,8 @@ using UnityEngine.UIElements;
 using TMPro;
 
 using UnityEngine;
-    using Random =  UnityEngine.Random;
+using UnityEngine.Serialization;
+using Random =  UnityEngine.Random;
 
 
     public class Game : MonoBehaviour
@@ -13,13 +14,13 @@ using UnityEngine;
     public static SpaceShooterControls Input { get; private set; }
     private int _score = 0;
     public TextMeshProUGUI scoreText;
-    private int _respawnTime = 3;
+    public int respawnTime = 3;
     public GameObject enemyPrefab;
     public GameObject powerUpPrefab;
     private Vector3 _eSpawnVector = new Vector3(5, 0, 0);
     private float _powerUpTimer = 0;
-    int _last = 0;  
-    int _curr = 0; 
+    public int last = 0;  
+    public int curr = 0; 
     
     public static Game Instance { get; private set; }
 
@@ -49,16 +50,10 @@ using UnityEngine;
         {
             _powerUpTimer = Random.Range(5f, 12f);
         }
-        _curr =  (int)Time.time;
-        if (_curr - _last > _respawnTime)
-        {
-            int randomNumber = Random.Range(-4, 5);//Controls spawning along Y axis
-            _last = _curr;
-            var enemy = Instantiate(enemyPrefab);
-            enemy.transform.position = new Vector3(8, randomNumber, 0);
-        }
+        curr =  (int)Time.time;
+
         //controls spawning of power ups
-        if ((_curr - _powerUpTimer) > 0){
+        if ((curr - _powerUpTimer) > 0){
             Instantiate(powerUpPrefab);
             _powerUpTimer += Random.Range(5f, 12f);
         }
