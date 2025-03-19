@@ -56,16 +56,15 @@ using Random =  UnityEngine.Random;
 
         //controls spawning of power ups
         if ((curr - _powerUpTimer) > 0){
-            powerUp = Random.Range(0, 1);
+            powerUp = Random.Range(0, 2);
             if (powerUp == 0){
                 Instantiate(healthPowerUpPrefab);
-               _powerUpTimer += Random.Range(5f, 12f);
+                
             }
-            if (powerUp == 1){
+            else if (powerUp == 1){
                 Instantiate(speedPowerUpPrefab);
-                _powerUpTimer += Random.Range(5f, 12f);
             }
-            
+            _powerUpTimer += Random.Range(5f, 12f);
         }
         
     }
