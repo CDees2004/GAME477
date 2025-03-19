@@ -327,7 +327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0fd73798f9e04740b9cfd161972debc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
   enemyPrefab: {fileID: 0}
+  powerUpPrefab: {fileID: 0}
 --- !u!4 &822691671
 Transform:
   m_ObjectHideFlags: 0
@@ -438,6 +440,7 @@ GameObject:
   - component: {fileID: 1676348426}
   - component: {fileID: 1676348425}
   - component: {fileID: 1676348424}
+  - component: {fileID: 1676348427}
   m_Layer: 0
   m_Name: Powerup
   m_TagString: PowerUp
@@ -501,7 +504,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0017978847, y: -0.0003437996}
@@ -523,6 +526,18 @@ Transform:
   - {fileID: 1222253304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1676348427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676348423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47604e8804ee6081cb611a5a7bffd2ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
