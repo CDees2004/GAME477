@@ -14,13 +14,10 @@ using Random =  UnityEngine.Random;
     public static SpaceShooterControls Input { get; private set; }
     private int _score = 0;
     public TextMeshProUGUI scoreText;
-    public int respawnTime = 3;
-    public GameObject enemyPrefab;
     public GameObject healthPowerUpPrefab;
     public GameObject speedPowerUpPrefab;
-    private Vector3 _eSpawnVector = new Vector3(5, 0, 0);
     private float _powerUpTimer = 0;
-    public int last = 0;  
+    //public int last = 0;  
     public int curr = 0; 
     public int powerUp; //determine which powerup is spawned
     
