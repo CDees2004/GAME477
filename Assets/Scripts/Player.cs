@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
     public float moveSpeed;
     public GameObject bulletPrefab;
-    public Transform spawnPt;
+   
     public GameObject missilePrefab;
     public int upperBound = 4;
     public int lowerBound = -4;
@@ -41,11 +41,11 @@ public class Player : MonoBehaviour {
         // Bullet Functionality
         if (input.ShootBullet.WasPressedThisFrame()) {
             var bullet = Instantiate(bulletPrefab);
-            bullet.transform.position = spawnPt.position+Vector3.right; }
+            bullet.transform.position = transform.position+Vector3.right; }
 
         if (input.ShootMissile.WasPressedThisFrame()) {
             var missile = Instantiate(missilePrefab);
-            missile.transform.position = spawnPt.position+Vector3.right;
+            missile.transform.position = transform.position+Vector3.right;
         }
         
         //This Quits the game when health reaches zero, implement UI later
