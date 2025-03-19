@@ -8,37 +8,38 @@ using Random = UnityEngine.Random;
 
 public class Wave : MonoBehaviour
 {
-    private int _respawnTime = 3;
+    private float _respawnTime = 3f;
     public GameObject enemyPrefab;
     private int _last = 0;  
     private int _curr = 0; 
    
     private Vector3[] _currentPattern;
     private readonly Vector3[] _pattern1 = {
-        new Vector3(5f, 2f, 0f), 
-        new Vector3(5f, 3f , 0f), 
-        new Vector3(5f, 0f , 0f), 
-        new Vector3(5f, -1f, 0f),
-        new Vector3(5f, -2f, 0f)
+        new Vector3(11f, -3f, 0f), 
+        new Vector3(11f, 3f , 0f), 
+        new Vector3(12f, 2f , 0f), 
+        new Vector3(12f, -2f, 0f),
+        new Vector3(13f, 1f, 0f),
+        new Vector3(13f, -1f, 0f)
     };
     
 
     private readonly Vector3[] _pattern2 = {
-        new Vector3(5f, 3f, 0f),
-        new Vector3(5f, 4f, 0f),
-        new Vector3(5f, 5f, 0f),
-        new Vector3(5f, 1f, 0f),
-        new Vector3(5f, 2f, 0f),
-        new Vector3(5f, 0f, 0f)
+        new Vector3(13f, -3f, 0f), 
+        new Vector3(13f, 3f , 0f), 
+        new Vector3(12f, 2f , 0f), 
+        new Vector3(12f, -2f, 0f),
+        new Vector3(11f, 1f, 0f),
+        new Vector3(11f, -1f, 0f)
     };
 
     private readonly Vector3[] _pattern3 = {
-        new Vector3(5f, 0f, 0f),
-        new Vector3(5f, 3f, 0f),
-        new Vector3(5f, 4f, 0f),
-        new Vector3(5f, 2f, 0f),
-        new Vector3(5f, 5f, 0f),
-        new Vector3(5f, 1f, 0f)
+        new Vector3(10f, 0f, 0f),
+        new Vector3(10f, 3f, 0f),
+        new Vector3(10f, 4f, 0f),
+        new Vector3(10f, 2f, 0f),
+        new Vector3(10f, 5f, 0f),
+        new Vector3(10f, 1f, 0f)
     };
     
     
@@ -55,6 +56,7 @@ public class Wave : MonoBehaviour
         {
             SpawnWave();
             _last = _curr;
+            _respawnTime = Random.Range(1f, 3f);
         }
     }
     private void SpawnWave()
