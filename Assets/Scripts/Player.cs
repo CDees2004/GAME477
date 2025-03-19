@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using System.Threading.Tasks;
+using System;
 
 public class Player : MonoBehaviour {
     public float moveSpeed;
@@ -75,6 +77,14 @@ public class Player : MonoBehaviour {
         healthSlider.value = _health;
         
     }
+
+    public async Task updateSpeed(int x){
+        moveSpeed *= x;
+        print("Move Speed up!");
+        await Task.Delay(TimeSpan.FromSeconds(5));
+        print("Move Speed down");
+        moveSpeed = moveSpeed / x;
+    }
     public int getHealth()
     {
         return _health;
@@ -91,6 +101,11 @@ public class Player : MonoBehaviour {
         if (collision.CompareTag("HealthPowerUp")){
             print("Health up!");
             updateHealth(2);
+            Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("SpeedPowerUp")){
+            print("Speed up!");
+            updateSpeed(2);
             Destroy(collision.gameObject);
         }
         

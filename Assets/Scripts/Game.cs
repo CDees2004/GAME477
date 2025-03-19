@@ -16,11 +16,13 @@ using Random =  UnityEngine.Random;
     public TextMeshProUGUI scoreText;
     public int respawnTime = 3;
     public GameObject enemyPrefab;
-    public GameObject powerUpPrefab;
+    public GameObject healthPowerUpPrefab;
+    public GameObject speedPowerUpPrefab;
     private Vector3 _eSpawnVector = new Vector3(5, 0, 0);
     private float _powerUpTimer = 0;
     public int last = 0;  
     public int curr = 0; 
+    public int powerUp; //determine which powerup is spawned
     
     public static Game Instance { get; private set; }
 
@@ -54,8 +56,16 @@ using Random =  UnityEngine.Random;
 
         //controls spawning of power ups
         if ((curr - _powerUpTimer) > 0){
-            Instantiate(powerUpPrefab);
-            _powerUpTimer += Random.Range(5f, 12f);
+            powerUp = Random.Range(0, 1);
+            if (powerUp == 0){
+                Instantiate(healthPowerUpPrefab);
+               _powerUpTimer += Random.Range(5f, 12f);
+            }
+            if (powerUp == 1){
+                Instantiate(speedPowerUpPrefab);
+                _powerUpTimer += Random.Range(5f, 12f);
+            }
+            
         }
         
     }
