@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
-    public float moveSpeed;
+    public float moveSpeed = 5;
     public GameObject bulletPrefab;
    
     public GameObject missilePrefab;
