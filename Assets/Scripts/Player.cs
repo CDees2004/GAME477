@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     private int _health = 10;
     private float _last = 0;  
     private float _curr = 0;
-    private float _shootCooldown = 1.2f;
+    private float _shootCooldown = .12f;
 
     // Start is called before the first frame update
     void Start() {

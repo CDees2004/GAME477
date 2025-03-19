@@ -11,8 +11,8 @@ public class Wave : MonoBehaviour
     private float _respawnTime = 3f;
     public GameObject enemyPrefab;
     private int _last = 0;  
-    private int _curr = 0; 
-   
+    private int _curr = 0;
+    private bool _isEnabled = false;
     private Vector3[] _currentPattern;
     private readonly Vector3[] _pattern1 = {
         new Vector3(11f, -3f, 0f), 
@@ -45,18 +45,20 @@ public class Wave : MonoBehaviour
     
     void Start()
     {
-        
-        
+
     }
 
     void Update()
     {
-        _curr =  (int)Time.time;
-        if (_curr - _last > _respawnTime)
+        if (_isEnabled)
         {
-            SpawnWave();
-            _last = _curr;
-            _respawnTime = Random.Range(1f, 3f);
+            _curr = (int)Time.time;
+            if (_curr - _last > _respawnTime)
+            {
+                SpawnWave();
+                _last = _curr;
+                _respawnTime = Random.Range(1f, 3f);
+            }
         }
     }
     private void SpawnWave()
@@ -89,6 +91,10 @@ public class Wave : MonoBehaviour
         
 
     }
-    
+
+    public void Enable()
+    {
+        _isEnabled = true;
+    }
 }
     
