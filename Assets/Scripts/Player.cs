@@ -11,8 +11,8 @@ public class Player : MonoBehaviour {
     public GameObject missilePrefab;
     public int upperBound = 4;
     public int lowerBound = -4;
-    public int leftBound = -9;
-    public int rightBound = 9;
+    public float leftBound = -9;
+    public float rightBound = 9;
     public Slider healthSlider;
     private AudioSource _audioSrc;
     private int _health = 10;
@@ -87,6 +87,7 @@ public class Player : MonoBehaviour {
         {
             print("Collided");
             updateHealth(-1);
+            Destroy(collision.gameObject);
         }
         if (collision.CompareTag("HealthPowerUp")){
             print("Health up!");

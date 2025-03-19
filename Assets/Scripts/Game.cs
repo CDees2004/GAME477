@@ -14,13 +14,12 @@ using Random =  UnityEngine.Random;
     public static SpaceShooterControls Input { get; private set; }
     private int _score = 0;
     public TextMeshProUGUI scoreText;
-    public int respawnTime = 3;
-    public GameObject enemyPrefab;
+
     public GameObject powerUpPrefab;
     private Vector3 _eSpawnVector = new Vector3(5, 0, 0);
     private float _powerUpTimer = 0;
-    public int last = 0;  
-    public int curr = 0; 
+    //private int _last = 0;  
+    private int _curr = 0; 
     
     public static Game Instance { get; private set; }
 
@@ -46,14 +45,15 @@ using Random =  UnityEngine.Random;
 
     // Update is called once per frame
     private void Update() {
+        print(1);
         if (_powerUpTimer == 0 || (_powerUpTimer == float.MaxValue))
         {
             _powerUpTimer = Random.Range(5f, 12f);
         }
-        curr =  (int)Time.time;
+        _curr =  (int)Time.time;
 
         //controls spawning of power ups
-        if ((curr - _powerUpTimer) > 0){
+        if ((_curr - _powerUpTimer) > 0){
             Instantiate(powerUpPrefab);
             _powerUpTimer += Random.Range(5f, 12f);
         }
