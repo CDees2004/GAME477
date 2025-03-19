@@ -15,7 +15,9 @@ using UnityEngine;
     public TextMeshProUGUI scoreText;
     private int _respawnTime = 3;
     public GameObject enemyPrefab;
+    public GameObject powerUpPrefab;
     private Vector3 _eSpawnVector = new Vector3(5, 0, 0);
+    private float powerUpTimer; 
     int _last = 0;  
     int _curr = 0; 
     
@@ -37,6 +39,7 @@ using UnityEngine;
         
         Input = new SpaceShooterControls();     //grab input
         Input.Enable(); //enable input assets
+        powerUpTimer = float.MaxValue; //makign sure powerups don't spawn in the main menu
 
     }
 
@@ -49,6 +52,11 @@ using UnityEngine;
             _last = _curr;
             var enemy = Instantiate(enemyPrefab);
             enemy.transform.position = new Vector3(8, randomNumber, 0);
+        }
+        powerUpTimer -= powerUpTimer.deltaTime; //controls spawning of power ups
+        if (powerUpTimer < 0){
+            Instantiate(powerUpPrefab);
+            powerUpTimer = Random.Range(5f, 12f);
         }
         
 
