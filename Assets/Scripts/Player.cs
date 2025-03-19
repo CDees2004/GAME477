@@ -18,6 +18,9 @@ public class Player : MonoBehaviour {
     public Slider healthSlider;
     private AudioSource _audioSrc;
     private int _health = 10;
+    private float _last = 0;  
+    private float _curr = 0;
+    private float _shootCooldown = 1.2f;
 
     // Start is called before the first frame update
     void Start() {
@@ -26,6 +29,7 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        _curr = Time.time;
 
         // Player Controls
         var input = Game.Input.Standard;
@@ -51,9 +55,11 @@ public class Player : MonoBehaviour {
 
 
         // Bullet Functionality
-        if (input.ShootBullet.WasPressedThisFrame()) {
+        if ((input.ShootBullet.IsPressed() & (_curr - _last > _shootCooldown))) {
             var bullet = Instantiate(bulletPrefab);
-            bullet.transform.position = transform.position+Vector3.right; }
+            bullet.transform.position = transform.position+Vector3.right; 
+            _last = _curr;
+        }
 
         if (input.ShootMissile.WasPressedThisFrame()) {
             var missile = Instantiate(missilePrefab);
