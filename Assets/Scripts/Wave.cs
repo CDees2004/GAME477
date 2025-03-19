@@ -7,12 +7,16 @@ using Random = UnityEngine.Random;
 
 public class Wave : MonoBehaviour
 {
+    private int _respawnTime = 3;
+    public GameObject enemyPrefab;
+    private int _last = 0;  
+    private int _curr = 0; 
    
     private Vector3[] _currentPattern;
     private readonly Vector3[] _pattern1 = {
-        new Vector3(-2f, 2f, 0f), new Vector3( 0f, 2f , 0f), new Vector3( 2f, 2f , 0), 
-        new Vector3(-1f, 1f, 0f),
-        new Vector3(1f, 1f, 0f)
+        new Vector3(5f, 2f, 0f), new Vector3( 5f, 3f , 0f), new Vector3( 5f, 0f , 0), 
+        new Vector3(5f, -1f, 0f),
+        new Vector3(5f, -2f, 0f)
     };
     
 
@@ -43,9 +47,11 @@ public class Wave : MonoBehaviour
 
     void Update()
     {
-        if (Game.Instance.curr - Game.Instance.last > Game.Instance.respawnTime)
+        _curr =  (int)Time.time;
+        if (_curr - _last > _respawnTime)
         {
             SpawnWave();
+            _last = _curr;
         }
     }
     private void SpawnWave()
@@ -67,7 +73,8 @@ public class Wave : MonoBehaviour
 
         for (int i = 0; i < _currentPattern.GetLength(0); i++)
         {
-            var enemy = Instantiate(Game.Instance.enemyPrefab);
+            print(i);
+            var enemy = Instantiate(enemyPrefab);
             enemy.transform.position = _currentPattern[i];
         }
         
