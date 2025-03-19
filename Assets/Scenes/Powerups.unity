@@ -418,8 +418,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
-  enemyPrefab: {fileID: 6113951007750707890, guid: f2c081c45294b9e4c9eb83a34e5a7b3f, type: 3}
-  powerUpPrefab: {fileID: 6848497575772983620, guid: e7fcafcdadd94ac4d9e750bc78d29c36, type: 3}
+  healthPowerUpPrefab: {fileID: 0}
+  speedPowerUpPrefab: {fileID: 0}
+  curr: 0
+  powerUp: 0
 --- !u!4 &822691671
 Transform:
   m_ObjectHideFlags: 0
@@ -453,7 +455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1063864284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +473,8 @@ MonoBehaviour:
   missilePrefab: {fileID: 1794629715104888244, guid: 51df3e8df8598c24d8e27217416de110, type: 3}
   upperBound: 4
   lowerBound: -4
+  leftBound: -9
+  rightBound: 9
   healthSlider: {fileID: 0}
 --- !u!60 &1063864285
 PolygonCollider2D:

@@ -9,7 +9,6 @@ using System;
 public class Player : MonoBehaviour {
     public float moveSpeed = 5;
     public GameObject bulletPrefab;
-   
     public GameObject missilePrefab;
     public int upperBound = 4;
     public int lowerBound = -4;

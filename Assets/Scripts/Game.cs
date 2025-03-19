@@ -1,18 +1,17 @@
-    using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 using TMPro;
-
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 using Random =  UnityEngine.Random;
 
 
     public class Game : MonoBehaviour
-{   
-    public static SpaceShooterControls Input { get; private set; }
-    private int _score = 0;
+{
+    private float score;
     public TextMeshProUGUI scoreText;
     public GameObject healthPowerUpPrefab;
     public GameObject speedPowerUpPrefab;
@@ -20,8 +19,11 @@ using Random =  UnityEngine.Random;
     //public int last = 0;  
     public int curr = 0; 
     public int powerUp; //determine which powerup is spawned
-    
+
+    #region properties
+    public static SpaceShooterControls Input { get; private set; }
     public static Game Instance { get; private set; }
+    #endregion
 
     private void Awake()
     {
@@ -31,20 +33,21 @@ using Random =  UnityEngine.Random;
         }
     }
     
-    
-      //initalize SpaceShooterControls as input
+   
 
     // Start is called before the first frame update
     void Start() {
-        
+        Instance = this;
         Input = new SpaceShooterControls();     //grab input
-        Input.Enable(); //enable input assets
         _powerUpTimer = float.MaxValue; //makign sure powerups don't spawn in the main menu
+
 
     }
 
     // Update is called once per frame
     private void Update() {
+        scoreText.text = score.ToString("00000");
+
         if (_powerUpTimer == 0 || (_powerUpTimer == float.MaxValue))
         {
             _powerUpTimer = Random.Range(5f, 12f);
@@ -66,18 +69,24 @@ using Random =  UnityEngine.Random;
         }
         
     }
-    
 
-    public void updateScore(int x)
+    public void StartGame(GameObject mainMenuScreen)
     {
-        _score += x;
-        scoreText.text = _score.ToString("00000");
+        Input.Enable();
+        mainMenuScreen.SetActive(false);
+        score = 0;
     }
 
 
-    public int getScore()
+    public void updateScore(float amount)
     {
-        return _score;
+        score += amount;
+    }
+
+
+    public float getScore()
+    {
+        return score;
     }
 }
 
