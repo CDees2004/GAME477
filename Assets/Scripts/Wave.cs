@@ -34,12 +34,15 @@ public class Wave : MonoBehaviour
     };
 
     private readonly Vector3[] _pattern3 = {
+        new Vector3(10f, -4f, 0f),
+        new Vector3(10f, -3f, 0f),
+        new Vector3(10f, -2f, 0f),
+        new Vector3(10f, -1f, 0f),
         new Vector3(10f, 0f, 0f),
-        new Vector3(10f, 3f, 0f),
-        new Vector3(10f, 4f, 0f),
+        new Vector3(10f, 1f, 0f),
         new Vector3(10f, 2f, 0f),
-        new Vector3(10f, 5f, 0f),
-        new Vector3(10f, 1f, 0f)
+        new Vector3(10f, 3f, 0f),
+        new Vector3(10f, 4f, 0f)
     };
     
     

@@ -15,7 +15,7 @@ using Random =  UnityEngine.Random;
     public TextMeshProUGUI scoreText;
     public GameObject healthPowerUpPrefab;
     public GameObject speedPowerUpPrefab;
-    private float _powerUpTimer = 0;
+    private float _powerUpTimer = float.MaxValue;
     //public int last = 0;  
     public int curr = 0; 
     public int powerUp; //determine which powerup is spawned

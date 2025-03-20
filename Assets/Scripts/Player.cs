@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using System.Threading.Tasks;
 using System;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour {
     public float moveSpeed = 5;
@@ -20,26 +21,41 @@ public class Player : MonoBehaviour {
     private float _last = 0;  
     private float _curr = 0;
     private float _shootCooldown = .12f;
+    public GameObject normal; //These are sprites
+    public GameObject up;
+    public GameObject down;
+    private GameObject _currentSprite;
+
 
     // Start is called before the first frame update
     void Start() {
         _audioSrc = GetComponent<AudioSource>();
+        _currentSprite = normal;
     }
 
     // Update is called once per frame
     void Update() {
         _curr = Time.time;
-
         // Player Controls
         var input = Game.Input.Standard;
+        ChangeSprite(normal);
         if (transform.position[1] < upperBound)
         {
             transform.Translate(Vector3.up * moveSpeed * Time.deltaTime * input.MoveUp.ReadValue<float>());
-        }
+            if (input.MoveUp.IsPressed())
+            {
+                ChangeSprite(up);
+            }
 
+        }
         if (transform.position[1] > lowerBound)
         {
             transform.Translate(Vector3.down * moveSpeed * Time.deltaTime * input.MoveDown.ReadValue<float>());
+            if (input.MoveDown.IsPressed())
+            {
+                ChangeSprite(down);
+            }
+
         }
 
         if (transform.position[0] < rightBound)
@@ -51,6 +67,9 @@ public class Player : MonoBehaviour {
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime * input.MoveLeft.ReadValue<float>());
         }
+
+
+        
 
 
         // Bullet Functionality
@@ -115,5 +134,15 @@ public class Player : MonoBehaviour {
             Destroy(collision.gameObject);
         }
         
+    }
+
+    public void ChangeSprite(GameObject sprite)
+    {
+        if (sprite != _currentSprite)
+        {
+            _currentSprite.SetActive(false);
+            sprite.SetActive(true);
+            _currentSprite = sprite;
+        }
     }
 }
