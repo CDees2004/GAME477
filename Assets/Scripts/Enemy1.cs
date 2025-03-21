@@ -26,11 +26,11 @@ public class Enemy1 : MonoBehaviour
     void Update()
     {
 
-        if (transform.position.x < 5) { GetComponent<Rigidbody2D>().AddForce(Vector2.right * 3); }
-        if (transform.position.x > 7) { GetComponent<Rigidbody2D>().AddForce(Vector2.left * 3); }
+        if (transform.position.x < 5) { GetComponent<Rigidbody2D>().AddForce(Vector2.right * 8); }
+        if (transform.position.x > 8) { GetComponent<Rigidbody2D>().AddForce(Vector2.left * 8); }
 
-        if (transform.position.y > 4) { GetComponent<Rigidbody2D>().AddForce(Vector2.down / 2); }
-        if (transform.position.y < -4) { GetComponent<Rigidbody2D>().AddForce(Vector2.up / 2); }
+        //if (transform.position.y > 4) { GetComponent<Rigidbody2D>().AddForce(Vector2.down / 2); } These never happen
+        //if (transform.position.y < -4) { GetComponent<Rigidbody2D>().AddForce(Vector2.up / 2); }
         
         
 
