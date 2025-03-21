@@ -5,19 +5,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = (float)2;
+    public float speed = (float)20;
     
     // Start is called before the first frame update
     void Start()
     {
-        
 
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(Vector2.left * speed);
     }
 
     // Update is called once per frame
-    void Update()
+    void Update( )
     {
-        transform.Translate(Vector3.right * -speed * Time.deltaTime);
+
         if (transform.position.x < -10)
         {
             Destroy(gameObject);

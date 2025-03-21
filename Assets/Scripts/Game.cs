@@ -13,6 +13,7 @@ using Random =  UnityEngine.Random;
 {
     private float _score;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreTextBg; 
     public GameObject healthPowerUpPrefab;
     public GameObject speedPowerUpPrefab;
     private float _powerUpTimer = float.MaxValue;
@@ -49,6 +50,7 @@ using Random =  UnityEngine.Random;
         if (gameStarted)
         {
             scoreText.text = _score.ToString("00000");
+            scoreTextBg.text = _score.ToString("00000");
 
             if (_powerUpTimer == 0 || (_powerUpTimer == float.MaxValue))
             {
@@ -84,13 +86,35 @@ using Random =  UnityEngine.Random;
         mainMenuScreen.SetActive(false);
         _score = 0;
         gameStarted = true;
-        GetComponent<AudioSource>().Play();
+        //GetComponent<AudioSource>().Play(); 
     }
 
     public void ToggleHud(GameObject hud)
     {
         hud.SetActive(!hud.activeSelf);
     }
+
+
+
+    public void TogglePauseMenu(GameObject pauseMenu)
+    {
+        if (pauseMenu.activeSelf)
+        {
+            Input.Enable();
+            Time.timeScale = 1;
+
+        }
+        else
+        {
+            Input.Disable();
+            Time.timeScale = 0;
+        }
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        
+            
+    }
+
+
 
 
     public void updateScore(float amount)

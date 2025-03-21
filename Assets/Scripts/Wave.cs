@@ -97,7 +97,7 @@ public class Wave : MonoBehaviour
 
     public void Enable()
     {
-        _isEnabled = true;
+        _isEnabled = !_isEnabled;
     }
 }
     
