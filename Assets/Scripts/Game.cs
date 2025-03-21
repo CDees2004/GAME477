@@ -86,7 +86,7 @@ using Random =  UnityEngine.Random;
         mainMenuScreen.SetActive(false);
         _score = 0;
         gameStarted = true;
-        //GetComponent<AudioSource>().Play(); 
+        GetComponent<AudioSource>().Play(); 
     }
 
     public void ToggleHud(GameObject hud)

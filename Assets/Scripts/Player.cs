@@ -17,7 +17,6 @@ public class Player : MonoBehaviour {
     public float leftBound = -9;
     public float rightBound = 9;
     public Slider healthSlider;
-    private AudioSource _audioSrc;
     private int _health = 10;
     private float _last = 0;  
     private float _curr = 0;
@@ -26,7 +25,13 @@ public class Player : MonoBehaviour {
     public GameObject up;
     public GameObject down;
     private GameObject _currentSprite;
-    
+    #region Audio variables
+    public AudioClip bulletShot;
+    public AudioClip missileShot;
+    public AudioClip speedPowerUp;
+    public AudioClip healthPowerUp;
+    private AudioSource audioSrc;
+    #endregion
 
 
     // Start is called before the first frame update
@@ -39,7 +44,7 @@ public class Player : MonoBehaviour {
         }
     }
     void Start() {
-        _audioSrc = GetComponent<AudioSource>();
+        audioSrc = GetComponent<AudioSource>();
         _currentSprite = normal;
     }
 
@@ -87,11 +92,15 @@ public class Player : MonoBehaviour {
             var bullet = Instantiate(bulletPrefab);
             bullet.transform.position = transform.position+Vector3.right; 
             _last = _curr;
+            audioSrc.clip = bulletShot;
+            audioSrc.Play();
         }
 
         if (input.ShootMissile.WasPressedThisFrame()) {
             var missile = Instantiate(missilePrefab);
             missile.transform.position = transform.position+Vector3.right;
+            audioSrc.clip = missileShot;
+            audioSrc.Play();
         }
         
         //This Quits the game when health reaches zero, implement UI later
@@ -132,11 +141,15 @@ public class Player : MonoBehaviour {
             print("Health up!");
             updateHealth(2);
             Destroy(collision.gameObject);
+            audioSrc.clip = healthPowerUp;
+            audioSrc.Play();
         }
         if (collision.CompareTag("SpeedPowerUp")){
             print("Speed up!");
             updateSpeed(2);
             Destroy(collision.gameObject);
+            audioSrc.clip = speedPowerUp;
+            audioSrc.Play();
         }
         
     }
