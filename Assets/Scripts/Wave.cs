@@ -14,7 +14,8 @@ public class Wave : MonoBehaviour
     private int _curr = 0;
     private bool _isEnabled = false;
     private Vector3[] _currentPattern;
-    private Vector3[][] _patternList;
+    private readonly List<Vector3[]> _patterns = new List<Vector3[]>();
+    public  List<GameObject> enemies = new List<GameObject>();
     
     
 
@@ -51,86 +52,86 @@ public class Wave : MonoBehaviour
     
     private readonly Vector3[] _pattern4 = {
         new Vector3(10f, -4f, 0f),
-        new Vector3(10f, -3f, 0f),
-        new Vector3(10f, -2f, 0f),
-        new Vector3(10f, -1f, 0f),
-        new Vector3(10f, 0f, 0f),
-        new Vector3(10f, 1f, 0f),
-        new Vector3(10f, 2f, 0f),
-        new Vector3(10f, 3f, 0f),
+        new Vector3(11f, -3f, 0f),
+        new Vector3(12f, -2f, 0f),
+        new Vector3(13f, -1f, 0f),
+        new Vector3(14f, 0f, 0f),
+        new Vector3(13f, 1f, 0f),
+        new Vector3(12f, 2f, 0f),
+        new Vector3(11f, 3f, 0f),
         new Vector3(10f, 4f, 0f)
     };
     
-    private readonly Vector3[] _pattern6 = {
-        new Vector3(10f, -4f, 0f),
-        new Vector3(10f, -3f, 0f),
-        new Vector3(10f, -2f, 0f),
-        new Vector3(10f, -1f, 0f),
+    private readonly Vector3[] _pattern5 = {
+        new Vector3(14f, -4f, 0f),
+        new Vector3(13f, -3f, 0f),
+        new Vector3(12f, -2f, 0f),
+        new Vector3(11f, -1f, 0f),
         new Vector3(10f, 0f, 0f),
-        new Vector3(10f, 1f, 0f),
-        new Vector3(10f, 2f, 0f),
-        new Vector3(10f, 3f, 0f),
-        new Vector3(10f, 4f, 0f)
+        new Vector3(11f, 1f, 0f),
+        new Vector3(12f, 2f, 0f),
+        new Vector3(13f, 3f, 0f),
+        new Vector3(14f, 4f, 0f)
+    };
+    private readonly Vector3[] _pattern6 = {
+        new Vector3(11f, -2f, 0f),
+        new Vector3(11f, -1f, 0f),
+        new Vector3(12f, 0f, 0f),
+        new Vector3(12f, 1f, 0f),
+        new Vector3(13f, 2f, 0f),
+        new Vector3(13f, 3f, 0f),
+
     };
     private readonly Vector3[] _pattern7 = {
-        new Vector3(10f, -4f, 0f),
-        new Vector3(10f, -3f, 0f),
-        new Vector3(10f, -2f, 0f),
+        new Vector3(11f, -1f, 0f),
         new Vector3(10f, -1f, 0f),
+        new Vector3(11f, 0f, 0f),
         new Vector3(10f, 0f, 0f),
+        new Vector3(11f, 1f, 0f),
         new Vector3(10f, 1f, 0f),
-        new Vector3(10f, 2f, 0f),
-        new Vector3(10f, 3f, 0f),
-        new Vector3(10f, 4f, 0f)
     };
     private readonly Vector3[] _pattern8 = {
-        new Vector3(10f, -4f, 0f),
-        new Vector3(10f, -3f, 0f),
-        new Vector3(10f, -2f, 0f),
-        new Vector3(10f, -1f, 0f),
+        new Vector3(9f, 0f, 0f),
         new Vector3(10f, 0f, 0f),
-        new Vector3(10f, 1f, 0f),
-        new Vector3(10f, 2f, 0f),
-        new Vector3(10f, 3f, 0f),
-        new Vector3(10f, 4f, 0f)
+        new Vector3(11f, 0f, 0f),
+        new Vector3(12f, 0f, 0f),
+        new Vector3(13f, 0f, 0f),
+        new Vector3(14f, 0f, 0f),
+        new Vector3(15f, 0f, 0f),
+        new Vector3(16f, 0f, 0f),
+        new Vector3(17f, 0f, 0f)
     };
     private readonly Vector3[] _pattern9 = {
-        new Vector3(10f, -4f, 0f),
-        new Vector3(10f, -3f, 0f),
-        new Vector3(10f, -2f, 0f),
-        new Vector3(10f, -1f, 0f),
-        new Vector3(10f, 0f, 0f),
+        new Vector3(9f, 1f, 0f),
         new Vector3(10f, 1f, 0f),
         new Vector3(10f, 2f, 0f),
-        new Vector3(10f, 3f, 0f),
-        new Vector3(10f, 4f, 0f)
+        new Vector3(9f, 2f, 0f),
+        new Vector3(9f, 1f, 0f),
     };
     private readonly Vector3[] _pattern10 = {
-        new Vector3(10f, -4f, 0f),
-        new Vector3(10f, -3f, 0f),
-        new Vector3(10f, -2f, 0f),
-        new Vector3(10f, -1f, 0f),
-        new Vector3(10f, 0f, 0f),
+        new Vector3(9f,  0f, 0f),
         new Vector3(10f, 1f, 0f),
-        new Vector3(10f, 2f, 0f),
-        new Vector3(10f, 3f, 0f),
-        new Vector3(10f, 4f, 0f)
-    };
-    private readonly Vector3[] _pattern11 = {
-        new Vector3(10f, -4f, 0f),
-        new Vector3(10f, -3f, 0f),
-        new Vector3(10f, -2f, 0f),
-        new Vector3(10f, -1f, 0f),
-        new Vector3(10f, 0f, 0f),
-        new Vector3(10f, 1f, 0f),
-        new Vector3(10f, 2f, 0f),
-        new Vector3(10f, 3f, 0f),
-        new Vector3(10f, 4f, 0f)
+        new Vector3(11f, 2f, 0f),
+        new Vector3(12f, 3f, 0f),
+        new Vector3(13f, 4f, 0f),
+        new Vector3(14f, 3f, 0f),
+        new Vector3(15f, 2f, 0f),
+        new Vector3(16f, 1f, 0f),
+        new Vector3(17f, 0f, 0f),
     };
     
     void Start()
     {
-
+        _patterns.Add(_pattern1);
+        _patterns.Add(_pattern2);
+        _patterns.Add(_pattern3);
+        _patterns.Add(_pattern4);
+        _patterns.Add(_pattern5);
+        _patterns.Add(_pattern6);
+        _patterns.Add(_pattern7);
+        _patterns.Add(_pattern8);
+        _patterns.Add(_pattern9);
+        _patterns.Add(_pattern10);
     }
 
 
@@ -147,30 +148,21 @@ public class Wave : MonoBehaviour
             }
         }
     }
+
+    private GameObject PickEType()
+    {
+        return enemies[Random.Range(0, enemies.Count)];
+    }
     private void SpawnWave()
     {
         
-        switch (Random.Range(1, 4))
-        {
-            case 1:
-                print("Wave 1");
-                _currentPattern = _pattern1;
-                break;
-            case 2:
-                print("Wave 2");
-                _currentPattern = _pattern2;
-                break;
-            case 3:
-                print("Wave 3");
-                _currentPattern = _pattern3;
-                break;
-
-        }
-
+        _currentPattern = _patterns[Random.Range(1,_patterns.Count)];
+        var etype = PickEType();
 
         for (int i = 0; i < _currentPattern.Length; i++)
         {
-            Instantiate(enemyPrefab).transform.position = _currentPattern[i];
+            var e = Instantiate(etype);
+            e.transform.position = _currentPattern[i];
         }
         _currentPattern = null;
 

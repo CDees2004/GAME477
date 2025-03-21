@@ -31,8 +31,8 @@ public class Enemy1 : MonoBehaviour
 
         if (transform.position.y > 4) { GetComponent<Rigidbody2D>().AddForce(Vector2.down / 2); }
         if (transform.position.y < -4) { GetComponent<Rigidbody2D>().AddForce(Vector2.up / 2); }
-
-
+        
+        
 
         //if (rb.velocity.x < 1)
         //{
@@ -55,5 +55,11 @@ public class Enemy1 : MonoBehaviour
             }
 
         }
+
+        if (collision.CompareTag("Player"))
+        {
+            Player.Instance.updateHealth(-2);
+        }
+        
     }
 }

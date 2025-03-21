@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.Threading.Tasks;
 using System;
 using Unity.VisualScripting;
+using UnityEditor.UI;
 
 public class Player : MonoBehaviour {
     public float moveSpeed = 5;
@@ -20,14 +21,23 @@ public class Player : MonoBehaviour {
     private int _health = 10;
     private float _last = 0;  
     private float _curr = 0;
-    private float _shootCooldown = .12f;
+    private float _shootCooldown = .05f;
     public GameObject normal; //These are sprites
     public GameObject up;
     public GameObject down;
     private GameObject _currentSprite;
+    
 
 
     // Start is called before the first frame update
+    public static Player Instance {get; private set;}
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
     void Start() {
         _audioSrc = GetComponent<AudioSource>();
         _currentSprite = normal;
@@ -117,12 +127,7 @@ public class Player : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.CompareTag("Enemy"))
-        {
-            print("Collided");
-            updateHealth(-1);
-            Destroy(collision.gameObject);
-        }
+
         if (collision.CompareTag("HealthPowerUp")){
             print("Health up!");
             updateHealth(2);
@@ -144,5 +149,10 @@ public class Player : MonoBehaviour {
             sprite.SetActive(true);
             _currentSprite = sprite;
         }
+    }
+
+    public void Activate()
+    {
+        gameObject.SetActive(true);
     }
 }

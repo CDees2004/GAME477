@@ -37,5 +37,11 @@ public class Enemy : MonoBehaviour
             speed = 0;
             
         }
+
+        if (collision.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            Player.Instance.updateHealth(-1);
+        }
     }
 }

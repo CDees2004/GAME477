@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 31490303}
   - component: {fileID: 31490305}
   - component: {fileID: 31490304}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: 'Hazy Main Menu Particles '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5420,7 +5420,7 @@ GameObject:
   - component: {fileID: 310922503}
   - component: {fileID: 310922505}
   - component: {fileID: 310922504}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Main Menu Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10837,7 +10837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 607481401}
   - component: {fileID: 607481402}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Background_Temp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10948,7 +10948,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000b3f63f08
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -11174,7 +11174,7 @@ GameObject:
   - component: {fileID: 721235139}
   - component: {fileID: 721235141}
   - component: {fileID: 721235140}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Temp Main Menu Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16078,7 +16078,7 @@ GameObject:
   - component: {fileID: 851435363}
   - component: {fileID: 851435365}
   - component: {fileID: 851435364}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Sunray Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16113,15 +16113,15 @@ ParticleSystemRenderer:
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 15302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3903f1107464d5647ba491e6b0b4c0b3, type: 2}
   - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -16154,7 +16154,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 0
+  m_RenderAlignment: 2
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_EnableGPUInstancing: 1
@@ -16185,7 +16185,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 1
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -16745,7 +16745,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
+    gravitySource: 1
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -19944,7 +19944,7 @@ ParticleSystem:
   TriggerModule:
     enabled: 0
     serializedVersion: 2
-    inside: 1
+    inside: 0
     outside: 0
     enter: 0
     exit: 0
@@ -20097,8 +20097,8 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 1
-          value: 0
+          time: 0.937238
+          value: 0.30267537
           inSlope: -2
           outSlope: -2
           tangentMode: 0
@@ -20139,7 +20139,7 @@ ParticleSystem:
     shadowBias: 0.5
     worldSpace: 0
     dieWithParticles: 0
-    sizeAffectsWidth: 1
+    sizeAffectsWidth: 0
     sizeAffectsLifetime: 1
     inheritParticleColor: 1
     generateLightingData: 0
@@ -21174,6 +21174,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 920106506}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &888945319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21221,13 +21233,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 893960746}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: 'Background '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &893960746
 Transform:
   m_ObjectHideFlags: 0
@@ -21459,7 +21471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &920106502
 Transform:
   m_ObjectHideFlags: 0
@@ -21630,6 +21642,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6113951007750707890, guid: f2c081c45294b9e4c9eb83a34e5a7b3f, type: 3}
+  enemies:
+  - {fileID: 734510733295633578, guid: 7edcaa6ab2e935c4087e1e84e4ac03b5, type: 3}
+  - {fileID: 6113951007750707890, guid: f2c081c45294b9e4c9eb83a34e5a7b3f, type: 3}
+  - {fileID: 4410050410525311232, guid: ef831dae3fdcc9440bd95bef4b6bae15, type: 3}
 --- !u!4 &927378964
 Transform:
   m_ObjectHideFlags: 0
@@ -21656,7 +21672,7 @@ GameObject:
   - component: {fileID: 937250492}
   - component: {fileID: 937250494}
   - component: {fileID: 937250493}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: 'Background Particles '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28221,7 +28237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1743635772}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28237,7 +28253,7 @@ Transform:
   m_GameObject: {fileID: 1743635771}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.29156172, y: 0.3754586, z: 0.005838856}
+  m_LocalPosition: {x: -0.29156172, y: 0.3754586, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28399,7 +28415,7 @@ GameObject:
   - component: {fileID: 1757274388}
   - component: {fileID: 1757274390}
   - component: {fileID: 1757274389}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: MountainSprite_Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28715,7 +28731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2046567620}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: --Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}

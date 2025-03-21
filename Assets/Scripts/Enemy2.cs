@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,29 +6,27 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class Enemy2 : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject _player;
     public float speed;
 
-    private float distance;
+    private float _distance;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _player = Player.Instance.gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - transform.position;
+        _distance = Vector3.Distance(transform.position, _player.transform.position);
+        Vector3 direction = _player.transform.position - transform.position;
         direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-
-        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+        var angle = Mathf.Atan2(transform.position.y-_player.transform.position.y, _distance) * Mathf.Rad2Deg;
+        transform.position = Vector3.MoveTowards(this.transform.position, _player.transform.position, speed * Time.deltaTime);
+        transform.rotation = Quaternion.AngleAxis(angle, transform.forward);
     }
 
 
@@ -41,7 +40,7 @@ public class Enemy2 : MonoBehaviour
         }
         else if (collision.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            Player.Instance.updateHealth(-3);
             Destroy(gameObject);
         }
     }
