@@ -30,6 +30,7 @@ public class Player : MonoBehaviour {
     public AudioClip missileShot;
     public AudioClip speedPowerUp;
     public AudioClip healthPowerUp;
+    public AudioClip explosion;
     private AudioSource audioSrc;
     #endregion
     private GameObject _currentSprite;
@@ -99,6 +100,8 @@ public class Player : MonoBehaviour {
         //This Quits the game when health reaches zero, implement UI later
         if (_health <= 0)
         {
+            audioSrc.clip = explosion;
+            audioSrc.Play();
             #if UNITY_STANDALONE
             Application.Quit();
             #endif

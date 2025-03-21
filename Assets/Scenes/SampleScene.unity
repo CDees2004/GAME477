@@ -1825,6 +1825,7 @@ MonoBehaviour:
   missileShot: {fileID: 8300000, guid: 096528d57837e5a0ab9f410c2bf568df, type: 3}
   speedPowerUp: {fileID: 8300000, guid: 7c9886a68cc0ef77dba7ea4b3188b3f3, type: 3}
   healthPowerUp: {fileID: 8300000, guid: a579b4ef5979205f88463054f3b59181, type: 3}
+  explosion: {fileID: 8300000, guid: 637f4c3704d82bf98aa5d2b5d2008cb5, type: 3}
 --- !u!82 &920106507
 AudioSource:
   m_ObjectHideFlags: 0
