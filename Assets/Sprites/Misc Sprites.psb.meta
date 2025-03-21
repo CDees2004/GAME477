@@ -94,7 +94,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Button BG
+  - name: Foreground
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -103,9 +103,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 1036
       y: 4
-      width: 381
-      height: 136
-    spriteID: 27a2a067309208d43a3c9dc7a4db3071
+      width: 0
+      height: 0
+    spriteID: 33097101d5deaff478343dbc3c698c21
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -114,7 +114,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 1036, y: 4}
-    spritePosition: {x: 192, y: 308}
+    spritePosition: {x: 0, y: 512}
   - name: Paper
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -172,16 +172,66 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Button BG
-    spriteName: Button BG
-    isGroup: 0
+  - name: Environment
+    spriteName: 
+    isGroup: 1
     parentIndex: -1
-    spriteID: 27a2a067309208d43a3c9dc7a4db3071
+    spriteID: d2a9cdd53c1c6534d939af0010918331
     layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Foreground
+    spriteName: Foreground
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 33097101d5deaff478343dbc3c698c21
+    layerID: 812909395
     mosaicPosition: {x: 1036, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: UI
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: bd06961c118497e4db2a9f993bfd6baf
+    layerID: -1090805748
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: Heart
+    spriteName: 
+    isGroup: 0
+    parentIndex: 2
+    spriteID: 51a21f3d9d51f1e41a0a8b18aa8fe814
+    layerID: 479190610
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Alt Button BG
+    spriteName: 
+    isGroup: 0
+    parentIndex: 2
+    spriteID: cbb4d0767e6ce0440929b4bc4c8459ce
+    layerID: 1593464258
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Button BG
+    spriteName: 
+    isGroup: 0
+    parentIndex: 2
+    spriteID: 58945e5831e536d4f964fc444258a506
+    layerID: 2100853763
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: Paper
     spriteName: Paper
     isGroup: 0
