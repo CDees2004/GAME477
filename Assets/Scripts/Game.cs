@@ -133,5 +133,6 @@ using Random =  UnityEngine.Random;
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    
 }
 

@@ -16060,6 +16060,7 @@ RectTransform:
   - {fileID: 1395270383}
   - {fileID: 1196879776}
   - {fileID: 888945316}
+  - {fileID: 851435363}
   m_Father: {fileID: 1744901807}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -16094,11 +16095,11 @@ Transform:
   m_GameObject: {fileID: 851435362}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.9236865, w: 0.38314915}
-  m_LocalPosition: {x: -7.76, y: 5.68, z: 0}
+  m_LocalPosition: {x: -967.9406, y: -534.75745, z: 0.036611773}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1743635772}
+  m_Father: {fileID: 839073646}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 134.942}
 --- !u!199 &851435364
 ParticleSystemRenderer:
@@ -21186,6 +21187,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1074474181}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: ToggleHud
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 851435362}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1074474181}
+        m_TargetAssemblyTypeName: Game, Assembly-CSharp
+        m_MethodName: ToggleHud
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 937250491}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &888945319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21613,10 +21638,10 @@ MonoBehaviour:
   normal: {fileID: 1633784309}
   up: {fileID: 1564822227}
   down: {fileID: 121610535}
-  bulletShot: {fileID: 8300000, guid: 3969865db55886f41a454121728460f6, type: 3}
-  missileShot: {fileID: 8300000, guid: a89aecc3166f34d9cbbf92a305c05810, type: 3}
-  speedPowerUp: {fileID: 8300000, guid: 3177e4845807c3ac5a08bbfbe8cf5769, type: 3}
-  healthPowerUp: {fileID: 8300000, guid: a579b4ef5979205f88463054f3b59181, type: 3}
+  bulletShot: {fileID: 0}
+  missileShot: {fileID: 0}
+  speedPowerUp: {fileID: 0}
+  healthPowerUp: {fileID: 0}
 --- !u!82 &920106507
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21779,7 +21804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &937250492
 Transform:
   m_ObjectHideFlags: 0
@@ -28553,7 +28578,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 937250492}
-  - {fileID: 851435363}
   - {fileID: 721235139}
   - {fileID: 310922503}
   - {fileID: 31490303}

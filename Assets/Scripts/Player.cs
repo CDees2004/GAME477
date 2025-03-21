@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
 using System.Threading.Tasks;
 using System;
 using Unity.VisualScripting;
 using UnityEditor.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 public class Player : MonoBehaviour {
     public float moveSpeed = 5;
@@ -20,7 +22,7 @@ public class Player : MonoBehaviour {
     private int _health = 10;
     private float _last = 0;  
     private float _curr = 0;
-    private float _shootCooldown = .05f;
+    private float _shootCooldown = .12f;
     public GameObject normal; //These are sprites
     public GameObject up;
     public GameObject down;
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour {
         }
     }
     void Start() {
+        
         audioSrc = GetComponent<AudioSource>();
         _currentSprite = normal;
     }
@@ -90,7 +93,7 @@ public class Player : MonoBehaviour {
         // Bullet Functionality
         if ((input.ShootBullet.IsPressed() & (_curr - _last > _shootCooldown))) {
             var bullet = Instantiate(bulletPrefab);
-            bullet.transform.position = transform.position+Vector3.right; 
+            bullet.transform.position = new  Vector3( transform.position.x + 1.5f, transform.position.y, 0);
             _last = _curr;
             audioSrc.clip = bulletShot;
             audioSrc.Play();
@@ -106,12 +109,13 @@ public class Player : MonoBehaviour {
         //This Quits the game when health reaches zero, implement UI later
         if (_health <= 0)
         {
-            #if UNITY_STANDALONE
-            Application.Quit();
-            #endif
-            #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-            #endif
+            //#if UNITY_STANDALONE
+            //Application.Quit();
+            //#endif
+           // #if UNITY_EDITOR
+            //UnityEditor.EditorApplication.isPlaying = false;
+            //#endif
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
     public void updateHealth(int x)
