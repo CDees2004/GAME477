@@ -24,12 +24,20 @@ public class Player : MonoBehaviour {
     public GameObject normal; //These are sprites
     public GameObject up;
     public GameObject down;
+
+    #region Audio variables
+    public AudioClip bulletShot;
+    public AudioClip missileShot;
+    public AudioClip speedPowerUp;
+    public AudioClip healthPowerUp;
+    private AudioSource audioSrc;
+    #endregion
     private GameObject _currentSprite;
 
 
     // Start is called before the first frame update
     void Start() {
-        _audioSrc = GetComponent<AudioSource>();
+        audioSrc = GetComponent<AudioSource>();
         _currentSprite = normal;
     }
 
@@ -77,11 +85,15 @@ public class Player : MonoBehaviour {
             var bullet = Instantiate(bulletPrefab);
             bullet.transform.position = transform.position+Vector3.right; 
             _last = _curr;
+            audioSrc.clip = bulletShot;
+            audioSrc.Play();
         }
 
         if (input.ShootMissile.WasPressedThisFrame()) {
             var missile = Instantiate(missilePrefab);
             missile.transform.position = transform.position+Vector3.right;
+            audioSrc.clip = missileShot;
+            audioSrc.Play();
         }
         
         //This Quits the game when health reaches zero, implement UI later
@@ -127,11 +139,15 @@ public class Player : MonoBehaviour {
             print("Health up!");
             updateHealth(2);
             Destroy(collision.gameObject);
+            audioSrc.clip = healthPowerUp;
+            audioSrc.Play();
         }
         if (collision.CompareTag("SpeedPowerUp")){
             print("Speed up!");
             updateSpeed(2);
             Destroy(collision.gameObject);
+            audioSrc.clip = speedPowerUp;
+            audioSrc.Play();
         }
         
     }
