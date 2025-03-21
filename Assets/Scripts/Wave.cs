@@ -14,6 +14,10 @@ public class Wave : MonoBehaviour
     private int _curr = 0;
     private bool _isEnabled = false;
     private Vector3[] _currentPattern;
+    private Vector3[][] _patternList;
+    
+    
+
     private readonly Vector3[] _pattern1 = {
         new Vector3(11f, -3f, 0f), 
         new Vector3(11f, 3f , 0f), 
@@ -45,11 +49,90 @@ public class Wave : MonoBehaviour
         new Vector3(10f, 4f, 0f)
     };
     
+    private readonly Vector3[] _pattern4 = {
+        new Vector3(10f, -4f, 0f),
+        new Vector3(10f, -3f, 0f),
+        new Vector3(10f, -2f, 0f),
+        new Vector3(10f, -1f, 0f),
+        new Vector3(10f, 0f, 0f),
+        new Vector3(10f, 1f, 0f),
+        new Vector3(10f, 2f, 0f),
+        new Vector3(10f, 3f, 0f),
+        new Vector3(10f, 4f, 0f)
+    };
+    
+    private readonly Vector3[] _pattern6 = {
+        new Vector3(10f, -4f, 0f),
+        new Vector3(10f, -3f, 0f),
+        new Vector3(10f, -2f, 0f),
+        new Vector3(10f, -1f, 0f),
+        new Vector3(10f, 0f, 0f),
+        new Vector3(10f, 1f, 0f),
+        new Vector3(10f, 2f, 0f),
+        new Vector3(10f, 3f, 0f),
+        new Vector3(10f, 4f, 0f)
+    };
+    private readonly Vector3[] _pattern7 = {
+        new Vector3(10f, -4f, 0f),
+        new Vector3(10f, -3f, 0f),
+        new Vector3(10f, -2f, 0f),
+        new Vector3(10f, -1f, 0f),
+        new Vector3(10f, 0f, 0f),
+        new Vector3(10f, 1f, 0f),
+        new Vector3(10f, 2f, 0f),
+        new Vector3(10f, 3f, 0f),
+        new Vector3(10f, 4f, 0f)
+    };
+    private readonly Vector3[] _pattern8 = {
+        new Vector3(10f, -4f, 0f),
+        new Vector3(10f, -3f, 0f),
+        new Vector3(10f, -2f, 0f),
+        new Vector3(10f, -1f, 0f),
+        new Vector3(10f, 0f, 0f),
+        new Vector3(10f, 1f, 0f),
+        new Vector3(10f, 2f, 0f),
+        new Vector3(10f, 3f, 0f),
+        new Vector3(10f, 4f, 0f)
+    };
+    private readonly Vector3[] _pattern9 = {
+        new Vector3(10f, -4f, 0f),
+        new Vector3(10f, -3f, 0f),
+        new Vector3(10f, -2f, 0f),
+        new Vector3(10f, -1f, 0f),
+        new Vector3(10f, 0f, 0f),
+        new Vector3(10f, 1f, 0f),
+        new Vector3(10f, 2f, 0f),
+        new Vector3(10f, 3f, 0f),
+        new Vector3(10f, 4f, 0f)
+    };
+    private readonly Vector3[] _pattern10 = {
+        new Vector3(10f, -4f, 0f),
+        new Vector3(10f, -3f, 0f),
+        new Vector3(10f, -2f, 0f),
+        new Vector3(10f, -1f, 0f),
+        new Vector3(10f, 0f, 0f),
+        new Vector3(10f, 1f, 0f),
+        new Vector3(10f, 2f, 0f),
+        new Vector3(10f, 3f, 0f),
+        new Vector3(10f, 4f, 0f)
+    };
+    private readonly Vector3[] _pattern11 = {
+        new Vector3(10f, -4f, 0f),
+        new Vector3(10f, -3f, 0f),
+        new Vector3(10f, -2f, 0f),
+        new Vector3(10f, -1f, 0f),
+        new Vector3(10f, 0f, 0f),
+        new Vector3(10f, 1f, 0f),
+        new Vector3(10f, 2f, 0f),
+        new Vector3(10f, 3f, 0f),
+        new Vector3(10f, 4f, 0f)
+    };
     
     void Start()
     {
 
     }
+
 
     void Update()
     {

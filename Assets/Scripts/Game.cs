@@ -127,5 +127,11 @@ using Random =  UnityEngine.Random;
     {
         return _score;
     }
+
+    public void Reset()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
 
