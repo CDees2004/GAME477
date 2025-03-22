@@ -7,9 +7,13 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 public class Enemy2 : MonoBehaviour
 {
     private GameObject _player;
+    public GameObject fish1;
+    public GameObject fish2;
+
     public float speed;
 
-    private float _distance;
+    private float distance;
+
 
 
     // Start is called before the first frame update
@@ -21,12 +25,15 @@ public class Enemy2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _distance = Vector3.Distance(transform.position, _player.transform.position);
+        distance = Vector3.Distance(transform.position, _player.transform.position);
         Vector3 direction = _player.transform.position - transform.position;
         direction.Normalize();
-        var angle = Mathf.Atan2(transform.position.y-_player.transform.position.y, _distance) * Mathf.Rad2Deg;
+        var angle = Mathf.Atan2(transform.position.y-_player.transform.position.y, distance) * Mathf.Rad2Deg;
         transform.position = Vector3.MoveTowards(this.transform.position, _player.transform.position, speed * Time.deltaTime);
         transform.rotation = Quaternion.AngleAxis(angle, transform.forward);
+
+        if (distance < 8) { fish1.SetActive(false); fish2.SetActive(true); }
+        else { fish1.SetActive(true); fish2.SetActive(false); }
     }
 
 
@@ -44,4 +51,6 @@ public class Enemy2 : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    
 }

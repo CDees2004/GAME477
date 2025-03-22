@@ -13,12 +13,13 @@ public class Enemy1 : MonoBehaviour
 
     Rigidbody2D rb;
 
-
+    public GameObject fishPrefab;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("spawnFish", 5);
 
     }
 
@@ -26,18 +27,9 @@ public class Enemy1 : MonoBehaviour
     void Update()
     {
 
-        if (transform.position.x < 5) { GetComponent<Rigidbody2D>().AddForce(Vector2.right * 8); }
-        if (transform.position.x > 8) { GetComponent<Rigidbody2D>().AddForce(Vector2.left * 8); }
+        if (transform.position.x < 6) { GetComponent<Rigidbody2D>().AddForce(Vector2.right); }
+        if (transform.position.x > 7) { GetComponent<Rigidbody2D>().AddForce(Vector2.left); }
 
-        //if (transform.position.y > 4) { GetComponent<Rigidbody2D>().AddForce(Vector2.down / 2); } These never happen
-        //if (transform.position.y < -4) { GetComponent<Rigidbody2D>().AddForce(Vector2.up / 2); }
-        
-        
-
-        //if (rb.velocity.x < 1)
-        //{
-
-        //}
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -60,6 +52,14 @@ public class Enemy1 : MonoBehaviour
         {
             Player.Instance.updateHealth(-2);
         }
-        
     }
+
+    public void spawnFish()
+    {
+        var fish = Instantiate(fishPrefab);
+        fish.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        Invoke("spawnFish", 5);
+
+    }
+        
 }
