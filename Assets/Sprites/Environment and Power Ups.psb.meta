@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6499f8b08a8d9874b8b87ddca13ba06a
+guid: 54b7d660896acf445a29c104fa4c8576
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -50,7 +50,7 @@ ScriptedImporter:
     flipbookColumns: 0
     ignorePngGamma: 0
     cookieMode: 0
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -94,18 +94,18 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Squid 2
+  - name: Layer 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 894
-      y: 2492
-      width: 639
-      height: 981
-    spriteID: 38879b21ee13aa74c89f87d0263ab39f
+      x: 3520
+      y: 4
+      width: 0
+      height: 0
+    spriteID: 8f2a6c61d111b464bbce942e7ae716d1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -113,29 +113,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 894, y: 2492}
-    spritePosition: {x: 1671, y: 909}
-  - name: Squid 1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 2492
-      width: 882
-      height: 1002
-    spriteID: d30acf26418644d48be5b3647511c804
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 2492}
-    spritePosition: {x: 737, y: 890}
+    uvTransform: {x: 3520, y: 4}
+    spritePosition: {x: 0, y: 2480}
   - name: Paper
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -147,7 +126,7 @@ ScriptedImporter:
       y: 4
       width: 3508
       height: 2480
-    spriteID: e2ffa8a416905e846827640464adf42e
+    spriteID: deda9ef8dbaf20f408a072351bb7ec30
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,31 +151,7 @@ ScriptedImporter:
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   mosaicLayers: 1
   characterMode: 1
   documentPivot: {x: 0, y: 0}
@@ -217,23 +172,13 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Squid 2
-    spriteName: Squid 2
+  - name: Layer 1
+    spriteName: Layer 1
     isGroup: 0
     parentIndex: -1
-    spriteID: 38879b21ee13aa74c89f87d0263ab39f
+    spriteID: 8f2a6c61d111b464bbce942e7ae716d1
     layerID: 0
-    mosaicPosition: {x: 894, y: 2492}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Squid 1
-    spriteName: Squid 1
-    isGroup: 0
-    parentIndex: -1
-    spriteID: d30acf26418644d48be5b3647511c804
-    layerID: -1088787481
-    mosaicPosition: {x: 4, y: 2492}
+    mosaicPosition: {x: 3520, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -241,7 +186,7 @@ ScriptedImporter:
     spriteName: Paper
     isGroup: 0
     parentIndex: -1
-    spriteID: e2ffa8a416905e846827640464adf42e
+    spriteID: deda9ef8dbaf20f408a072351bb7ec30
     layerID: -1779142660
     mosaicPosition: {x: 4, y: 4}
     flatten: 0

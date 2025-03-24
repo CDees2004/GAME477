@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6499f8b08a8d9874b8b87ddca13ba06a
+guid: 4fd604be81649ce4096f7403f1be601e
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,28 +94,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Squid 2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 894
-      y: 2492
-      width: 639
-      height: 981
-    spriteID: 38879b21ee13aa74c89f87d0263ab39f
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 894, y: 2492}
-    spritePosition: {x: 1671, y: 909}
-  - name: Squid 1
+  - name: Shark 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -123,10 +102,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 2492
-      width: 882
-      height: 1002
-    spriteID: d30acf26418644d48be5b3647511c804
+      y: 524
+      width: 593
+      height: 290
+    spriteID: 89345df6775243c408f25834e5b90c0a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -134,8 +113,29 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 2492}
-    spritePosition: {x: 737, y: 890}
+    uvTransform: {x: 4, y: 524}
+    spritePosition: {x: 21, y: 222}
+  - name: Shark 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1336
+      y: 4
+      width: 595
+      height: 293
+    spriteID: 6bdb812aa45c104478a77095f994962f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 935, y: 4}
+    spritePosition: {x: 101, y: 0}
   - name: Paper
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -145,9 +145,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 3508
-      height: 2480
-    spriteID: e2ffa8a416905e846827640464adf42e
+      width: 1024
+      height: 512
+    spriteID: 4ec261940814ff441aefa4ff96da6153
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -217,31 +217,71 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Squid 2
-    spriteName: Squid 2
+  - name: COLOR Copy
+    spriteName: COLOR Copy
     isGroup: 0
     parentIndex: -1
-    spriteID: 38879b21ee13aa74c89f87d0263ab39f
+    spriteID: 89345df6775243c408f25834e5b90c0a
     layerID: 0
-    mosaicPosition: {x: 894, y: 2492}
+    mosaicPosition: {x: 4, y: 524}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Squid 1
-    spriteName: Squid 1
+  - name: Shark 1
+    spriteName: Shark 1
     isGroup: 0
     parentIndex: -1
-    spriteID: d30acf26418644d48be5b3647511c804
-    layerID: -1088787481
-    mosaicPosition: {x: 4, y: 2492}
+    spriteID: 6bdb812aa45c104478a77095f994962f
+    layerID: 43307624
+    mosaicPosition: {x: 1036, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: Basic Fish 1
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e204a668dba04a742a725717cb79312d
+    layerID: -2101488749
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Basic Fish 2
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4084096237214d3409ede3bc84f67dde
+    layerID: -535404808
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Fish LO
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 903e93ee15edc4f4ea6a0bb12a22edb8
+    layerID: -1557017369
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: Boss LO
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 005f570a0fd520c489a5e0c2f7f60ea0
+    layerID: -2086732572
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: Paper
     spriteName: Paper
     isGroup: 0
     parentIndex: -1
-    spriteID: e2ffa8a416905e846827640464adf42e
+    spriteID: 4ec261940814ff441aefa4ff96da6153
     layerID: -1779142660
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
