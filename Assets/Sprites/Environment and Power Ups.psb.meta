@@ -32,7 +32,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 100
@@ -50,7 +50,7 @@ ScriptedImporter:
     flipbookColumns: 0
     ignorePngGamma: 0
     cookieMode: 0
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -94,17 +94,17 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Layer 1
+  - name: Missle
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3520
-      y: 4
-      width: 0
-      height: 0
+      x: 4
+      y: 4980
+      width: 1048
+      height: 639
     spriteID: 8f2a6c61d111b464bbce942e7ae716d1
     spriteBone: []
     spriteOutline: []
@@ -113,8 +113,71 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 3520, y: 4}
-    spritePosition: {x: 0, y: 2480}
+    uvTransform: {x: 4, y: 4980}
+    spritePosition: {x: 1903, y: 1354}
+  - name: Speed Powerup
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1060
+      y: 4980
+      width: 706
+      height: 304
+    spriteID: 2b8a6cf53d70be14f81d0bd18113ee57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1060, y: 4980}
+    spritePosition: {x: 808, y: 1572}
+  - name: HP Powerup
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1774
+      y: 4980
+      width: 430
+      height: 422
+    spriteID: 0f12ea1f209c39e4a82509a953e87d4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1774, y: 4980}
+    spritePosition: {x: 296, y: 1344}
+  - name: Environment
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 50, y: 0, z: 73, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 3508
+      height: 2480
+    spriteID: b3d6129036f40714c9d1a488a5dbe8f5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
   - name: Paper
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -123,7 +186,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 2492
       width: 3508
       height: 2480
     spriteID: deda9ef8dbaf20f408a072351bb7ec30
@@ -134,7 +197,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 4, y: 2492}
     spritePosition: {x: 0, y: 0}
   characterData:
     bones: []
@@ -151,7 +214,31 @@ ScriptedImporter:
     characterGroups: []
     pivot: {x: 0, y: 0}
     boneReadOnly: 0
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   mosaicLayers: 1
   characterMode: 1
   documentPivot: {x: 0, y: 0}
@@ -172,13 +259,43 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Layer 1
-    spriteName: Layer 1
+  - name: Missle
+    spriteName: Missle
     isGroup: 0
     parentIndex: -1
     spriteID: 8f2a6c61d111b464bbce942e7ae716d1
     layerID: 0
-    mosaicPosition: {x: 3520, y: 4}
+    mosaicPosition: {x: 4, y: 4980}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Speed Powerup
+    spriteName: Speed Powerup
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2b8a6cf53d70be14f81d0bd18113ee57
+    layerID: -1835064259
+    mosaicPosition: {x: 1060, y: 4980}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: HP Powerup
+    spriteName: HP Powerup
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0f12ea1f209c39e4a82509a953e87d4e
+    layerID: 842546210
+    mosaicPosition: {x: 1774, y: 4980}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Environment
+    spriteName: Environment
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b3d6129036f40714c9d1a488a5dbe8f5
+    layerID: 270112577
+    mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -188,7 +305,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: deda9ef8dbaf20f408a072351bb7ec30
     layerID: -1779142660
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 4, y: 2492}
     flatten: 0
     isImported: 1
     isVisible: 1
