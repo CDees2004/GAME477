@@ -94,69 +94,6 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Missle
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4980
-      width: 1048
-      height: 639
-    spriteID: 8f2a6c61d111b464bbce942e7ae716d1
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 4980}
-    spritePosition: {x: 1903, y: 1354}
-  - name: Speed Powerup
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 1060
-      y: 4980
-      width: 706
-      height: 304
-    spriteID: 2b8a6cf53d70be14f81d0bd18113ee57
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 1060, y: 4980}
-    spritePosition: {x: 808, y: 1572}
-  - name: HP Powerup
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 1774
-      y: 4980
-      width: 430
-      height: 422
-    spriteID: 0f12ea1f209c39e4a82509a953e87d4e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 1774, y: 4980}
-    spritePosition: {x: 296, y: 1344}
   - name: Environment
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -267,8 +204,8 @@ ScriptedImporter:
     layerID: 0
     mosaicPosition: {x: 4, y: 4980}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: Speed Powerup
     spriteName: Speed Powerup
     isGroup: 0
@@ -277,8 +214,8 @@ ScriptedImporter:
     layerID: -1835064259
     mosaicPosition: {x: 1060, y: 4980}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: HP Powerup
     spriteName: HP Powerup
     isGroup: 0
@@ -287,8 +224,8 @@ ScriptedImporter:
     layerID: 842546210
     mosaicPosition: {x: 1774, y: 4980}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: Environment
     spriteName: Environment
     isGroup: 0
