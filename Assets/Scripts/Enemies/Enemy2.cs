@@ -47,7 +47,7 @@ public class Enemy2 : MonoBehaviour
         }
         else if (collision.CompareTag("Player"))
         {
-            Player.Instance.updateHealth(-3);
+            Player.Instance.updateHealth(-1);
             Destroy(gameObject);
         }
     }
