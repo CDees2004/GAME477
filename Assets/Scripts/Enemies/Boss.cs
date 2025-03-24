@@ -95,7 +95,7 @@ public class Boss : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            Player.Instance.updateHealth(-3);
+            Player.Instance.UpdateHealth(-3);
         }
     }
 

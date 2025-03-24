@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        if (collision.CompareTag("Bullet")|| collision.CompareTag("Explosion"))
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Destroy(gameObject);
-            Player.Instance.updateHealth(-1);
+            Player.Instance.UpdateHealth(-1);
         }
     }
 }

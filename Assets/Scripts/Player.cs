@@ -21,8 +21,10 @@ public class Player : MonoBehaviour {
     public Slider healthSlider;
     private int _health = 10;
     private float _last = 0;  
+    private float _lastm = 0;
     private float _curr = 0;
     private float _shootCooldown = .12f;
+    public float missileCooldown = 1f;
     public GameObject normal; //These are sprites
     public GameObject up;
     public GameObject down;
@@ -99,9 +101,11 @@ public class Player : MonoBehaviour {
             audioSrc.Play();
         }
 
-        if (input.ShootMissile.WasPressedThisFrame()) {
+        if (input.ShootMissile.WasPressedThisFrame()& (_curr - _lastm > missileCooldown))
+        {
+            _lastm = _curr;
             var missile = Instantiate(missilePrefab);
-            missile.transform.position = transform.position+Vector3.right;
+            missile.transform.position = new  Vector3( transform.position.x + 1.5f, transform.position.y, 0);
             audioSrc.clip = missileShot;
             audioSrc.Play();
         }
@@ -118,21 +122,21 @@ public class Player : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-    public void updateHealth(int x)
+    public void UpdateHealth(int x)
     {
         _health += x;
         healthSlider.value = _health;
         
     }
 
-    public async Task updateSpeed(int x){
+    private async Task UpdateSpeed(int x){
         moveSpeed *= x;
         print("Move Speed up!");
         await Task.Delay(TimeSpan.FromSeconds(5));
         print("Move Speed down");
-        moveSpeed = moveSpeed / x;
+        moveSpeed /= x;
     }
-    public int getHealth()
+    public int GetHealth()
     {
         return _health;
     }
@@ -143,14 +147,14 @@ public class Player : MonoBehaviour {
 
         if (collision.CompareTag("HealthPowerUp")){
             print("Health up!");
-            updateHealth(2);
+            UpdateHealth(2);
             Destroy(collision.gameObject);
             audioSrc.clip = healthPowerUp;
             audioSrc.Play();
         }
         if (collision.CompareTag("SpeedPowerUp")){
             print("Speed up!");
-            updateSpeed(2);
+            _ = UpdateSpeed(2); //Discard return value, gets rid of slight issue. 
             Destroy(collision.gameObject);
             audioSrc.clip = speedPowerUp;
             audioSrc.Play();
@@ -158,7 +162,7 @@ public class Player : MonoBehaviour {
         
     }
 
-    public void ChangeSprite(GameObject sprite)
+    private void ChangeSprite(GameObject sprite)
     {
         if (sprite != _currentSprite)
         {

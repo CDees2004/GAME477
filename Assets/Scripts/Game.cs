@@ -131,6 +131,7 @@ using Random =  UnityEngine.Random;
     public void Reset()
     {
         Time.timeScale = 1;
+        Input.Disable();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     

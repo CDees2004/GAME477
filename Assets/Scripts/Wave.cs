@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 public class Wave : MonoBehaviour
 {
     private float _respawnTime = 3f;
-    public GameObject enemyPrefab;
     private int _last = 0;  
     private int _curr = 0;
     private bool _isEnabled = false;
@@ -144,10 +143,43 @@ public class Wave : MonoBehaviour
             {
                 SpawnWave();
                 _last = _curr;
-                _respawnTime = Random.Range(1f, 3f);
+                UpdateRespawnTime();
             }
         }
     }
+
+    private void UpdateRespawnTime()
+    {
+        var x = Game.Instance.getScore();
+        if (x >= 10000)
+        {
+            //SpawnBoss
+            //STOP all other spawns
+            _isEnabled = false;
+        }
+        else if (x >= 7500)
+        {
+            _respawnTime = Random.Range(1f, 3f);
+        }
+        else if (x >= 5000)
+        {
+            _respawnTime = Random.Range(2f, 5f);
+        }
+        else if (x >= 2500)
+        {
+            _respawnTime = Random.Range(3f, 6f);
+        }
+        else if (x >= 1500)
+        {
+            _respawnTime = Random.Range(4f, 6f);
+        }
+        else
+        {
+            _respawnTime = Random.Range(5f, 7f);
+        }
+
+
+}
 
     private GameObject PickEType()
     {
