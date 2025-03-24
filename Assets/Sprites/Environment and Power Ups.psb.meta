@@ -94,28 +94,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Environment
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 50, y: 0, z: 73, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 3508
-      height: 2480
-    spriteID: b3d6129036f40714c9d1a488a5dbe8f5
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 0, y: 0}
-  - name: Paper
+  - name: Speed Powerup
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -124,6 +103,48 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 2492
+      width: 706
+      height: 304
+    spriteID: 2b8a6cf53d70be14f81d0bd18113ee57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 2492}
+    spritePosition: {x: 808, y: 1572}
+  - name: HP Powerup
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3520
+      y: 4
+      width: 430
+      height: 422
+    spriteID: 0f12ea1f209c39e4a82509a953e87d4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3520, y: 4}
+    spritePosition: {x: 296, y: 1344}
+  - name: Paper
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
       width: 3508
       height: 2480
     spriteID: deda9ef8dbaf20f408a072351bb7ec30
@@ -134,7 +155,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 2492}
+    uvTransform: {x: 4, y: 4}
     spritePosition: {x: 0, y: 0}
   characterData:
     bones: []
@@ -212,20 +233,20 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 2b8a6cf53d70be14f81d0bd18113ee57
     layerID: -1835064259
-    mosaicPosition: {x: 1060, y: 4980}
+    mosaicPosition: {x: 4, y: 2492}
     flatten: 0
-    isImported: 0
-    isVisible: 0
+    isImported: 1
+    isVisible: 1
   - name: HP Powerup
     spriteName: HP Powerup
     isGroup: 0
     parentIndex: -1
     spriteID: 0f12ea1f209c39e4a82509a953e87d4e
     layerID: 842546210
-    mosaicPosition: {x: 1774, y: 4980}
+    mosaicPosition: {x: 3520, y: 4}
     flatten: 0
-    isImported: 0
-    isVisible: 0
+    isImported: 1
+    isVisible: 1
   - name: Environment
     spriteName: Environment
     isGroup: 0
@@ -234,15 +255,15 @@ ScriptedImporter:
     layerID: 270112577
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: Paper
     spriteName: Paper
     isGroup: 0
     parentIndex: -1
     spriteID: deda9ef8dbaf20f408a072351bb7ec30
     layerID: -1779142660
-    mosaicPosition: {x: 4, y: 2492}
+    mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
