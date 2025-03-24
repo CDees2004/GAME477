@@ -5732,7 +5732,7 @@ GameObject:
   - component: {fileID: 296341904}
   - component: {fileID: 296341903}
   m_Layer: 0
-  m_Name: Mountains_AGAIN
+  m_Name: Waves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
