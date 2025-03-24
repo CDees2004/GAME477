@@ -34,6 +34,7 @@ public class Player : MonoBehaviour {
     public AudioClip missileShot;
     public AudioClip speedPowerUp;
     public AudioClip healthPowerUp;
+    public AudioClip explosion;
     private AudioSource audioSrc;
     #endregion
 
@@ -116,7 +117,7 @@ public class Player : MonoBehaviour {
             //#if UNITY_STANDALONE
             //Application.Quit();
             //#endif
-           // #if UNITY_EDITOR
+            // #if UNITY_EDITOR
             //UnityEditor.EditorApplication.isPlaying = false;
             //#endif
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

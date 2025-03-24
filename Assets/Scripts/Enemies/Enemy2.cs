@@ -11,6 +11,8 @@ namespace Enemies
         public float speed;
 
         private float _distance;
+        public AudioClip explosion;
+        private AudioSource audioSrc;
 
 
 
@@ -43,6 +45,8 @@ namespace Enemies
                 {
                     Destroy(collision.gameObject);
                 }
+                audioSrc.clip = explosion;
+                audioSrc.Play();
                 Destroy(gameObject);
                 Game.Instance.updateScore(5);
             }
@@ -58,6 +62,8 @@ namespace Enemies
             {
                 Destroy(gameObject);
                 Game.Instance.updateScore(50);
+                audioSrc.clip = explosion;
+                audioSrc.Play();
             }
         }
 

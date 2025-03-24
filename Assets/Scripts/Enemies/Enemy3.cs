@@ -14,6 +14,8 @@ public class Enemy3 : MonoBehaviour
     public GameObject squid1;
     public GameObject squid2;
     private int _health = 4;
+    public AudioClip explosion;
+    private AudioSource audioSrc;
 
     private Vector3 _startPosition;
 
@@ -55,6 +57,8 @@ public class Enemy3 : MonoBehaviour
             {
                 Destroy(gameObject);
                 Game.Instance.updateScore(50);
+                audioSrc.clip = explosion;
+                audioSrc.Play();
             }
            
         }
@@ -71,6 +75,8 @@ public class Enemy3 : MonoBehaviour
         {
             Destroy(gameObject);
             Game.Instance.updateScore(50);
+            audioSrc.clip = explosion;
+            audioSrc.Play();
         }
     }
 

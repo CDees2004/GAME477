@@ -3,7 +3,18 @@ guid: 83fee20fd60646743bea08413f17c9fc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bulletPrefab: {instanceID: 0}
+  - missilePrefab: {instanceID: 0}
+  - healthSlider: {instanceID: 0}
+  - normal: {instanceID: 0}
+  - up: {instanceID: 0}
+  - down: {instanceID: 0}
+  - bulletShot: {fileID: 8300000, guid: 3969865db55886f41a454121728460f6, type: 3}
+  - missileShot: {fileID: 8300000, guid: a89aecc3166f34d9cbbf92a305c05810, type: 3}
+  - speedPowerUp: {fileID: 8300000, guid: 3177e4845807c3ac5a08bbfbe8cf5769, type: 3}
+  - healthPowerUp: {fileID: 8300000, guid: a579b4ef5979205f88463054f3b59181, type: 3}
+  - explosion: {fileID: 8300000, guid: b7dc0eecbcec00345afa51b5f67946e1, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

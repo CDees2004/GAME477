@@ -6,7 +6,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = (float)20;
-    
+    public AudioClip explosion;
+    private AudioSource audioSrc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Bullet")|| collision.CompareTag("Explosion"))
         {
+            audioSrc.clip = explosion;
+            audioSrc.Play();
             Destroy(collision.gameObject);
             Destroy(gameObject);
             Game.Instance.updateScore(10);

@@ -17,7 +17,9 @@ namespace Enemies
         public float floatSpeed = 1.0f;
         public float floatDistance = 0.5f;
         public float moveSpeed = 2.0f;
-    
+        public AudioClip explosion;
+        private AudioSource audioSrc;
+
 
         // Start is called before the first frame update
         void Start()
@@ -56,7 +58,8 @@ namespace Enemies
 
                 if (_counter >= 3)
                 {
-                    
+                    audioSrc.clip = explosion;
+                    audioSrc.Play();
                     Destroy(gameObject);
                     Game.Instance.updateScore(100);
                 }
@@ -74,6 +77,8 @@ namespace Enemies
             {
                 Destroy(gameObject);
                 Game.Instance.updateScore(50);
+                audioSrc.clip = explosion;
+                audioSrc.Play();
             }
         }
 

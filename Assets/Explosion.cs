@@ -12,6 +12,8 @@ public class Explosion : MonoBehaviour
     private int  _frameCounter = 0;
     private float _startTime;
     public List<GameObject> sprites = new List<GameObject>();
+    public AudioClip explosion;
+    private AudioSource audioSrc;
 
     private float _curr;
     // Start is called before the first frame update
@@ -21,6 +23,8 @@ public class Explosion : MonoBehaviour
         _startTime = (float)Time.timeAsDouble;
         _lifetime = frameInterval*3;
         gameObject.GetComponent<VisualEffect>().Play();
+        audioSrc.clip = explosion;
+        audioSrc.Play();
         
     }
 
