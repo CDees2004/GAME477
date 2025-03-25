@@ -27394,6 +27394,8 @@ MonoBehaviour:
   curr: 0
   powerUp: 0
   gameStarted: 0
+  startScreen: {fileID: 8300000, guid: 12eea4ab2c8751b5c827e650d711c77d, type: 3}
+  gameMusic: {fileID: 8300000, guid: 46617c686f32583bea98e6925b9d2ab6, type: 3}
 --- !u!82 &1074474182
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27405,7 +27407,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 12eea4ab2c8751b5c827e650d711c77d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
