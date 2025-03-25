@@ -60,7 +60,7 @@ public class Enemy1 : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
-                Game.Instance.updateScore(1000);
+                Game.Instance.updateScore(100);
             }
 
         }
@@ -72,12 +72,10 @@ public class Enemy1 : MonoBehaviour
 
         if (collision.CompareTag("Explosion"))
         {
-            counter += 2;
-            if (counter >= 3)
-            {
-                Destroy(gameObject);
-                Game.Instance.updateScore(100);
-            }
+
+            Destroy(gameObject);
+            Game.Instance.updateScore(100);
+            
 
         }
     }

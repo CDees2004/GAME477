@@ -50,6 +50,12 @@ public class Enemy3 : MonoBehaviour
             {
                 Destroy(collision.gameObject);
             }
+            
+            if (collision.CompareTag("Explosion"))
+            {
+                Destroy(gameObject);
+                Game.Instance.updateScore(50);
+            }
 
             _health--;
             if (_health <= 0)
@@ -65,11 +71,6 @@ public class Enemy3 : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.CompareTag("Explosion"))
-        {
-            Destroy(gameObject);
-            Game.Instance.updateScore(100);
-        }
     }
 
 

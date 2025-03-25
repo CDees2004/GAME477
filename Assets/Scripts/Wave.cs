@@ -15,6 +15,7 @@ public class Wave : MonoBehaviour
     private Vector3[] _currentPattern;
     private readonly List<Vector3[]> _patterns = new List<Vector3[]>();
     public  List<GameObject> enemies = new List<GameObject>();
+    public GameObject boss;
     
     
 
@@ -153,9 +154,8 @@ public class Wave : MonoBehaviour
         var x = Game.Instance.getScore();
         if (x >= 10000)
         {
-            //SpawnBoss
-            //STOP all other spawns
             _isEnabled = false;
+            Instantiate(boss);
         }
         else if (x >= 7500)
         {
