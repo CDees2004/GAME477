@@ -16,6 +16,8 @@ using Random =  UnityEngine.Random;
     public TextMeshProUGUI scoreTextBg; 
     public GameObject healthPowerUpPrefab;
     public GameObject speedPowerUpPrefab;
+    public GameObject gameOverScreen;
+    public GameObject gameWinScreen;
     private float _powerUpTimer = float.MaxValue;
     //public int last = 0;  
     public int curr = 0; 
@@ -142,6 +144,15 @@ using Random =  UnityEngine.Random;
         Time.timeScale = 1;
         Input.Disable();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Win()
+    {
+        //On win condition 
+        if (true)
+        {
+            TogglePauseMenu(gameWinScreen);
+        }
     }
     
 }

@@ -29,6 +29,8 @@ public class Player : MonoBehaviour {
     public GameObject up;
     public GameObject down;
     private GameObject _currentSprite;
+    public GameObject explosionSprite;
+    
     #region Audio variables
     public AudioClip bulletShot;
     public AudioClip missileShot;
@@ -120,7 +122,11 @@ public class Player : MonoBehaviour {
             // #if UNITY_EDITOR
             //UnityEditor.EditorApplication.isPlaying = false;
             //#endif
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Instantiate(explosionSprite).transform.position = transform.position;
+            Game.Instance.TogglePauseMenu(Game.Instance.gameOverScreen);
+            gameObject.SetActive(false);
+            
         }
     }
     public void UpdateHealth(int x)
@@ -177,4 +183,5 @@ public class Player : MonoBehaviour {
     {
         gameObject.SetActive(true);
     }
+    
 }
