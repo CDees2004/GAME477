@@ -90,8 +90,7 @@ public class Enemy1 : MonoBehaviour
         startPosition = transform.position;
 
         // adjust position for hovering so it's not so jank
-        startPosition.y = startPosition.y - 0.43f;
-        startPosition.x = startPosition.x + 0.15f;
+
 
         isHovering = true;
     }
