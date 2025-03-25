@@ -7,14 +7,14 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class Boss : MonoBehaviour
 {
-    private enum BossState {Dead, Hovering, Charging, Attacking, Pass }
+    private enum BossState {Hovering, Charging, Attacking, Pass }
 
     private int _counter;
     private Vector3 _hoverCenter;
     private float _hoverStartTime;
     private BossState _state;
     private bool _spawning;
-
+    private bool _isDead = false;
     public float floatStrength = 0.5f;
     public float floatSpeed = 1.0f;
     public float floatDistance = 0.5f;
@@ -25,6 +25,8 @@ public class Boss : MonoBehaviour
     public GameObject sharkPrefab;
     public GameObject squidPrefab;
     public VisualEffect vfx;
+
+    public GameObject deadBoss; 
     //boss Sprites
     public GameObject restingSprite;
     public GameObject attackingSprite;
@@ -57,7 +59,7 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_state != BossState.Dead)
+        if (!_isDead)
         {
             switch (_state)
             {
@@ -118,9 +120,10 @@ public class Boss : MonoBehaviour
         }
         if (_counter >= 300) //this seems like a lot, it is not              
         {
-            _state = BossState.Dead;
-            vfx.gameObject.SetActive(true);
-            transform.position = Vector3.MoveTowards(transform.position, _hoverCenter, floatSpeed);
+            _isDead =  true;
+            Game.Instance.Win(gameObject);
+            
+
         }                                                                    
     }
 

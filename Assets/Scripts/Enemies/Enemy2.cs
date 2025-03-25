@@ -47,6 +47,7 @@ namespace Enemies
             if (collision.CompareTag("Player"))
             {
                 Player.Instance.UpdateHealth(-3);
+                Destroy(gameObject);
             }
 
             if (collision.CompareTag("Explosion"))

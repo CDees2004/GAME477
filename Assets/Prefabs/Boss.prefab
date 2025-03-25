@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 5077701097141043915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.001292, z: 0}
-  m_LocalScale: {x: 2.222559, y: 2.222559, z: 2.222559}
+  m_LocalPosition: {x: -13, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3309025827327235433}
@@ -350,6 +350,7 @@ MonoBehaviour:
   sharkPrefab: {fileID: 4410050410525311232, guid: ef831dae3fdcc9440bd95bef4b6bae15, type: 3}
   squidPrefab: {fileID: 483768044005300070, guid: 65d9038a7a7fe3f4dae955d82ec38582, type: 3}
   vfx: {fileID: 1896278524028909804}
+  deadBoss: {fileID: 7102746481140031491, guid: 197e255f78229874baf7ceb4dfb42c07, type: 3}
   restingSprite: {fileID: 9215767281801561837}
   attackingSprite: {fileID: 8670588674773374131}
   summoningSprite: {fileID: 7172316921656913929}

@@ -18,6 +18,7 @@ using Random =  UnityEngine.Random;
     public GameObject speedPowerUpPrefab;
     public GameObject gameOverScreen;
     public GameObject gameWinScreen;
+    public GameObject bossDead; 
     private float _powerUpTimer = float.MaxValue;
     //public int last = 0;  
     public int curr = 0; 
@@ -58,9 +59,10 @@ using Random =  UnityEngine.Random;
     private void Update() {
         if (gameStarted)
         {
+
             scoreText.text = _score.ToString("00000");
             scoreTextBg.text = _score.ToString("00000");
-
+            
             if (_powerUpTimer == 0 || (_powerUpTimer == float.MaxValue))
             {
                 _powerUpTimer = Random.Range(5f, 12f);
@@ -125,6 +127,13 @@ using Random =  UnityEngine.Random;
             
     }
 
+    private void WinMenu()
+    {
+        gameWinScreen.SetActive(true);
+        Input.Disable();
+        Time.timeScale = 0;
+    }
+
 
 
 
@@ -146,12 +155,14 @@ using Random =  UnityEngine.Random;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void Win()
+    public void Win(GameObject g)
     {
         //On win condition 
+        Instantiate(bossDead,  g.transform.position, g.transform.rotation).SetActive(true);
+        Destroy(g);
         if (true)
         {
-            TogglePauseMenu(gameWinScreen);
+            Invoke(nameof(WinMenu), 6f);
         }
     }
     

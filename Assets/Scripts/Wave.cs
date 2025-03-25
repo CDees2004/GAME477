@@ -159,23 +159,23 @@ public class Wave : MonoBehaviour
         }
         else if (x >= 7500)
         {
-            _respawnTime = Random.Range(1f, 3f);
+            _respawnTime = Random.Range(1f, 2f);
         }
         else if (x >= 5000)
         {
-            _respawnTime = Random.Range(2f, 5f);
+            _respawnTime = Random.Range(1f, 3f);
         }
         else if (x >= 2500)
         {
-            _respawnTime = Random.Range(3f, 6f);
+            _respawnTime = Random.Range(2f, 4f);
         }
         else if (x >= 1500)
         {
-            _respawnTime = Random.Range(4f, 6f);
+            _respawnTime = Random.Range(3f, 4f);
         }
         else
         {
-            _respawnTime = Random.Range(5f, 7f);
+            _respawnTime = Random.Range(3f, 5f);
         }
 
 

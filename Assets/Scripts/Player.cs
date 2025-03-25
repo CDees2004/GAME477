@@ -62,6 +62,10 @@ public class Player : MonoBehaviour {
         // Player Controls
         var input = Game.Input.Standard;
         ChangeSprite(normal);
+        if (input.Cheat.WasPerformedThisFrame())
+        {
+            Game.Instance.updateScore(10000);
+        }
         if (transform.position[1] < upperBound)
         {
             transform.Translate(Vector3.up * moveSpeed * Time.deltaTime * input.MoveUp.ReadValue<float>());

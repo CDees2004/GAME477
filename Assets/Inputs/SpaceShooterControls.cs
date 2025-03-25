@@ -80,6 +80,15 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cheat"",
+                    ""type"": ""Button"",
+                    ""id"": ""fcd54392-905f-491c-9d44-424acdc4d758"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -236,6 +245,50 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
                     ""action"": ""ShootMissile"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Two Modifiers"",
+                    ""id"": ""6322e6b7-369f-4298-b419-25d34914a9b4"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cheat"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier1"",
+                    ""id"": ""f28012bc-11eb-4e68-b23f-2ba2db3ea12c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cheat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier2"",
+                    ""id"": ""434a275a-d310-4e2f-b63d-9db7886a56e8"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cheat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""2ce3cac9-bbfb-4834-bf83-b7a74105be7b"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cheat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -250,6 +303,7 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
         m_Standard_MoveLeft = m_Standard.FindAction("MoveLeft", throwIfNotFound: true);
         m_Standard_ShootBullet = m_Standard.FindAction("ShootBullet", throwIfNotFound: true);
         m_Standard_ShootMissile = m_Standard.FindAction("ShootMissile", throwIfNotFound: true);
+        m_Standard_Cheat = m_Standard.FindAction("Cheat", throwIfNotFound: true);
     }
 
     ~@SpaceShooterControls()
@@ -322,6 +376,7 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_MoveLeft;
     private readonly InputAction m_Standard_ShootBullet;
     private readonly InputAction m_Standard_ShootMissile;
+    private readonly InputAction m_Standard_Cheat;
     public struct StandardActions
     {
         private @SpaceShooterControls m_Wrapper;
@@ -332,6 +387,7 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
         public InputAction @MoveLeft => m_Wrapper.m_Standard_MoveLeft;
         public InputAction @ShootBullet => m_Wrapper.m_Standard_ShootBullet;
         public InputAction @ShootMissile => m_Wrapper.m_Standard_ShootMissile;
+        public InputAction @Cheat => m_Wrapper.m_Standard_Cheat;
         public InputActionMap Get() { return m_Wrapper.m_Standard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -359,6 +415,9 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
             @ShootMissile.started += instance.OnShootMissile;
             @ShootMissile.performed += instance.OnShootMissile;
             @ShootMissile.canceled += instance.OnShootMissile;
+            @Cheat.started += instance.OnCheat;
+            @Cheat.performed += instance.OnCheat;
+            @Cheat.canceled += instance.OnCheat;
         }
 
         private void UnregisterCallbacks(IStandardActions instance)
@@ -381,6 +440,9 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
             @ShootMissile.started -= instance.OnShootMissile;
             @ShootMissile.performed -= instance.OnShootMissile;
             @ShootMissile.canceled -= instance.OnShootMissile;
+            @Cheat.started -= instance.OnCheat;
+            @Cheat.performed -= instance.OnCheat;
+            @Cheat.canceled -= instance.OnCheat;
         }
 
         public void RemoveCallbacks(IStandardActions instance)
@@ -406,5 +468,6 @@ public partial class @SpaceShooterControls: IInputActionCollection2, IDisposable
         void OnMoveLeft(InputAction.CallbackContext context);
         void OnShootBullet(InputAction.CallbackContext context);
         void OnShootMissile(InputAction.CallbackContext context);
+        void OnCheat(InputAction.CallbackContext context);
     }
 }
