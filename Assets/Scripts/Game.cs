@@ -113,12 +113,16 @@ using Random =  UnityEngine.Random;
     {
         if (pauseMenu.activeSelf)
         {
+            gameStarted = true;
+
             Input.Enable();
             Time.timeScale = 1;
 
         }
         else
         {
+            gameStarted = false;
+
             Input.Disable();
             Time.timeScale = 0;
         }
@@ -150,14 +154,18 @@ using Random =  UnityEngine.Random;
 
     public void Reset()
     {
-        Time.timeScale = 1;
+        gameStarted = false;
         Input.Disable();
+        Time.timeScale = 1;
+        Destroy(gameObject);
+        Instantiate(gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Win(GameObject g)
     {
-        //On win condition 
+        //On win condition
+        gameStarted = false;
         Instantiate(bossDead,  g.transform.position, g.transform.rotation).SetActive(true);
         Destroy(g);
         if (true)
