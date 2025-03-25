@@ -111,6 +111,17 @@ public class Boss : MonoBehaviour
         {
             Player.Instance.UpdateHealth(-3);
         }
+
+        if (collision.CompareTag("Explosion"))
+        {
+            counter += 1;
+            if (counter >= 300) //this seems like a lot, it is not
+            {
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+                Game.Instance.updateScore(1000);
+            }
+        }
     }
 
 
