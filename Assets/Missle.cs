@@ -18,7 +18,7 @@ public class Missle : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
-        if (transform.position[0] > 8)
+        if (transform.position[0] > 10)
         {
             Destroy(gameObject);
         }

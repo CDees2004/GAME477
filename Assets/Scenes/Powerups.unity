@@ -419,11 +419,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  scoreTextBg: {fileID: 0}
   healthPowerUpPrefab: {fileID: 0}
   speedPowerUpPrefab: {fileID: 0}
   curr: 0
   powerUp: 0
   gameStarted: 0
+  startScreen: {fileID: 0}
+  gameMusic: {fileID: 0}
 --- !u!4 &822691671
 Transform:
   m_ObjectHideFlags: 0
@@ -446,7 +449,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822691669}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 46617c686f32583bea98e6925b9d2ab6, type: 3}
@@ -553,7 +556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1063864284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,11 +577,15 @@ MonoBehaviour:
   leftBound: -9
   rightBound: 9
   healthSlider: {fileID: 0}
+  missileCooldown: 1
   normal: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 0}
   bulletShot: {fileID: 8300000, guid: 3969865db55886f41a454121728460f6, type: 3}
   missileShot: {fileID: 8300000, guid: 096528d57837e5a0ab9f410c2bf568df, type: 3}
+  speedPowerUp: {fileID: 0}
+  healthPowerUp: {fileID: 0}
+  explosion: {fileID: 0}
 --- !u!60 &1063864285
 PolygonCollider2D:
   m_ObjectHideFlags: 0

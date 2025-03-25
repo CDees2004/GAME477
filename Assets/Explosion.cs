@@ -21,11 +21,12 @@ public class Explosion : MonoBehaviour
     {
         //_lastFrame += (float)Time.timeAsDouble;
         _startTime = (float)Time.timeAsDouble;
-        _lifetime = frameInterval*3;
+        _lifetime = frameInterval*15;
         gameObject.GetComponent<VisualEffect>().Play();
         audioSrc.clip = explosion;
         audioSrc.Play();
-        
+
+
     }
 
     // Update is called once per frame

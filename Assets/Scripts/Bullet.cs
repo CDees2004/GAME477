@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    public float speed = (float)15; 
+    public float speed = 15f; 
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
-        if (transform.position[0] > 8)
+        if (transform.position[0] > 10)
         {
             Destroy(gameObject);
         }

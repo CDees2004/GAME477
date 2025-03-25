@@ -21,6 +21,11 @@ using Random =  UnityEngine.Random;
     public int curr = 0; 
     public int powerUp; //determine which powerup is spawned
     public Boolean gameStarted = false;
+
+    public AudioClip startScreen;
+    public AudioClip gameMusic;
+    private AudioSource audioSource;
+
     #region properties
     public static SpaceShooterControls Input { get; private set; }
     public static Game Instance { get; private set; }
@@ -38,10 +43,12 @@ using Random =  UnityEngine.Random;
 
     // Start is called before the first frame update
     void Start() {
-        
+
         Input = new SpaceShooterControls();     //grab input
         _powerUpTimer = float.MaxValue; //makign sure powerups don't spawn in the main menu
-        
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = startScreen;
+        audioSource.Play();
 
     }
 
@@ -86,7 +93,9 @@ using Random =  UnityEngine.Random;
         mainMenuScreen.SetActive(false);
         _score = 0;
         gameStarted = true;
-        GetComponent<AudioSource>().Play(); 
+        audioSource.Stop();
+        audioSource.clip = gameMusic;
+        audioSource.Play();
     }
 
     public void ToggleHud(GameObject hud)

@@ -14,8 +14,7 @@ public class Enemy3 : MonoBehaviour
     public GameObject squid1;
     public GameObject squid2;
     private int _health = 4;
-    public AudioClip explosion;
-    private AudioSource audioSrc;
+
 
     private Vector3 _startPosition;
 
@@ -57,28 +56,22 @@ public class Enemy3 : MonoBehaviour
             {
                 Destroy(gameObject);
                 Game.Instance.updateScore(50);
-                audioSrc.clip = explosion;
-                audioSrc.Play();
             }
            
         }
-        else if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             Player.Instance.UpdateHealth(-3);
             Destroy(gameObject);
         }
-    }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
         if (collision.CompareTag("Explosion"))
         {
             Destroy(gameObject);
-            Game.Instance.updateScore(50);
-            audioSrc.clip = explosion;
-            audioSrc.Play();
+            Game.Instance.updateScore(100);
         }
     }
+
 
     //set to going up sprite
     private void ChangeSpriteUp() { squid1.SetActive(true); squid2.SetActive(false);  Invoke(nameof(ChangeSpriteDown), 3f); }
