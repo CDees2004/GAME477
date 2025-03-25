@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
     private float _lastm = 0;
     private float _curr = 0;
     private float _shootCooldown = .12f;
-    public float missileCooldown = 2f;
+    public float missileCooldown = 3.2f;
     public GameObject normal; //These are sprites
     public GameObject up;
     public GameObject down;

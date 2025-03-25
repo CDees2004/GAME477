@@ -9,12 +9,12 @@ public class Boss : MonoBehaviour
 {
     private enum BossState {Hovering, Charging, Attacking, Pass }
 
-    private int _counter;
-    private Vector3 _hoverCenter;
-    private float _hoverStartTime;
-    private BossState _state;
-    private bool _spawning;
-    private bool _isDead = false;
+    private int counter;
+    private Vector3 hoverCenter;
+    private float hoverStartTime;
+    private BossState state;
+    private bool spawning;
+    private bool isDead = false;
     public float floatStrength = 0.5f;
     public float floatSpeed = 1.0f;
     public float floatDistance = 0.5f;
@@ -32,36 +32,25 @@ public class Boss : MonoBehaviour
     public GameObject attackingSprite;
     public GameObject summoningSprite;
    
-    /*  
-     * VERY IMPORTANT NOTE
-     * The boss is tuned to start at x = 13 and y = 0, 
-     * it has to start here for it's attack pattern to be consistent
-     *
-     * Please do not mess with any tuning numbers in here, they are that way for a reason,
-     * discord me if I need to change something
-     * 
-     * It's also not completely finished, need sprite for full implemenetation
-     * Notably numbers for the attack pattern sequence execution are just for testing rn
-     */
 
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.left * 200);
-        _state = BossState.Pass;
+        state = BossState.Pass;
         Invoke(nameof(BeginHover), 1.5f);
         Invoke(nameof(SpawnFish), 5);
-        _counter = 0;
-        _spawning = false;
+        counter = 0;
+        spawning = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_isDead)
+        if (!isDead)
         {
-            switch (_state)
+            switch (state)
             {
                 case BossState.Hovering:
 
@@ -77,23 +66,27 @@ public class Boss : MonoBehaviour
                         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                         GetComponent<Rigidbody2D>().AddForce(Vector2.left * 800);
                         Invoke(nameof(BeginHover), 0.5f);
-                        _state = BossState.Pass;
+                        state = BossState.Pass;
                     }
 
                     break;
 
                 //pushes boss back a lil and stops hovering to signal charge attack
                 case BossState.Attacking:
-                    _spawning = false;
+                    spawning = false;
                     GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                     GetComponent<Rigidbody2D>().AddForce(Vector2.right * 250);
-                    _state = BossState.Charging;
+                    state = BossState.Charging;
                     break;
 
                 //base case to default to --- very important!!!
                 case BossState.Pass:
                     break;
             }
+        }
+        if (isDead)
+        {
+            Invoke("Dead", 1f);
         }
 
     }
@@ -102,7 +95,7 @@ public class Boss : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            _counter += 1;
+            counter += 1;
             Destroy(collision.gameObject);
 
 
@@ -115,14 +108,13 @@ public class Boss : MonoBehaviour
 
         if (collision.CompareTag("Explosion"))
         {
-            _counter += 1;
+            counter += 2;
            
         }
-        if (_counter >= 300) //this seems like a lot, it is not              
+        if (counter >= 300) //this seems like a lot, it is not              
         {
-            _isDead =  true;
+            isDead =  true;
             Game.Instance.Win(gameObject);
-            
 
         }                                                                    
     }
@@ -131,24 +123,24 @@ public class Boss : MonoBehaviour
     //does the hover, gets called on every update from the hover case
     void DoHover()
     {
-        if (_spawning == false)
+        if (spawning == false)
         {
-            float phase = Time.time - _hoverStartTime;
+            float phase = Time.time - hoverStartTime;
             //I ripped this from a 2D balloon popping game tutorial >:)
             //It uses the angles from the unit circle basically to make the object rotate in a circle I think
-            float newX = _hoverCenter.x + Mathf.Cos(phase * floatSpeed) * floatDistance;
-            float newY = _hoverCenter.y + Mathf.Sin(phase * floatSpeed) * floatDistance;
+            float newX = hoverCenter.x + Mathf.Cos(phase * floatSpeed) * floatDistance;
+            float newY = hoverCenter.y + Mathf.Sin(phase * floatSpeed) * floatDistance;
 
             transform.position = new Vector3(newX, newY, transform.position.z);
             attackingSprite.SetActive(false); restingSprite.SetActive(true);
         }
-        else if (_spawning == true)
+        else if (spawning == true)
         {
-            float phase = Time.time - _hoverStartTime;
+            float phase = Time.time - hoverStartTime;
             //I ripped this from a 2D balloon popping game tutorial >:)
             //It uses the angles from the unit circle basically to make the object rotate in a circle I think
-            float newX = _hoverCenter.x + Mathf.Cos(phase * floatSpeed) * floatDistance;
-            float newY = _hoverCenter.y + Mathf.Sin(phase * floatSpeed) * floatDistance;
+            float newX = hoverCenter.x + Mathf.Cos(phase * floatSpeed) * floatDistance;
+            float newY = hoverCenter.y + Mathf.Sin(phase * floatSpeed) * floatDistance;
 
             transform.position = new Vector3(newX, newY, transform.position.z);
             summoningSprite.SetActive(true); restingSprite.SetActive(false);
@@ -159,10 +151,10 @@ public class Boss : MonoBehaviour
     //starts hover based on location after boss waltz in
     private void BeginHover()
     {
-        _hoverCenter = transform.position;
-        _hoverCenter.y -= 0.44f;
-        _hoverStartTime = Time.time;  
-        _state = BossState.Hovering;
+        hoverCenter = transform.position;
+        hoverCenter.y -= 0.44f;
+        hoverStartTime = Time.time;  
+        state = BossState.Hovering;
     }
 
 
@@ -202,7 +194,7 @@ public class Boss : MonoBehaviour
         var squid4 = Instantiate(squidPrefab);
         squid4.transform.position = new Vector3(12, -1f, 0);
 
-        _spawning = true;
+        spawning = true;
         Invoke(nameof(StartAttack), 5f);
     }
 
@@ -211,7 +203,7 @@ public class Boss : MonoBehaviour
     private void StartAttack() 
     {
         attackingSprite.SetActive(false); restingSprite.SetActive(true); summoningSprite.SetActive(false);
-        _state = BossState.Attacking; Invoke(nameof(CmereBoy), 2f); 
+        state = BossState.Attacking; Invoke(nameof(CmereBoy), 2f); 
     }
 
     //launches that mfer, calls next attack pattern sequence
@@ -222,5 +214,8 @@ public class Boss : MonoBehaviour
         Invoke(nameof(SpawnFish), 10f); 
     }
     
-
+    void Dead()
+    {
+        attackingSprite.SetActive(false); restingSprite.SetActive(false); summoningSprite.SetActive(false);
+    }
 }

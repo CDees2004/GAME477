@@ -11,7 +11,7 @@ using Random =  UnityEngine.Random;
 
     public class Game : MonoBehaviour
 {
-    private float _score;
+    public float _score;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreTextBg; 
     public GameObject healthPowerUpPrefab;

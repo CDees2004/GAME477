@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 9141531508032827564, guid: 411cf5b0e26253d40b2b32ac4364292d, type: 3}
-  speed: 15
+  speed: 10
 --- !u!96 &310207747677096772
 TrailRenderer:
   serializedVersion: 3
